@@ -1,0 +1,211 @@
+TMPDIR is being set to /tmp/genus_temp_2009440_dell52_rkim12_c7MtnL
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2023 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[22:08:09.306090] Configured Lic search path (21.01-s002): 5280@vm-license1:27000@vm-license1
+
+Version: 21.18-s082_1, built Tue Jul 18 10:08:41 PDT 2023
+Options: -files /h/rkim12/EE166/Lab2_mod/scripts/compile.tcl -log compile 
+Date:    Wed Mar 18 22:08:09 2026
+Host:    dell52 (x86_64 w/Linux 4.18.0-553.71.1.el8_10.x86_64) (32cores*128cpus*2physical cpus*Intel(R) Xeon(R) Gold 6338 CPU @ 2.00GHz 49152KB) (527253140KB)
+PID:     2009440
+OS:      Red Hat Enterprise Linux release 8.10 (Ootpa)
+
+
+[22:08:10.019739] Periodic Lic check successful
+[22:08:10.019745] Feature usage summary:
+[22:08:10.019746] Genus_Synthesis
+Checking out license: Genus_Synthesis
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Loading tool scripts...
+Finished loading tool scripts (41 seconds elapsed).
+
+#@ Processing -files option
+@genus 1> source /h/rkim12/EE166/Lab2_mod/scripts/compile.tcl
+#@ Begin verbose source /h/rkim12/EE166/Lab2_mod/scripts/compile.tcl
+@file(compile.tcl) 5: sh hostname
+dell52
+@file(compile.tcl) 6: date
+Wed Mar 18 22:08:51 EDT 2026
+@file(compile.tcl) 8: set start_time [clock seconds]
+@file(compile.tcl) 10: set rm_task synthesis
+@file(compile.tcl) 16: source -echo -verbose ../scripts/core_config.tcl
+Sourcing '../scripts/core_config.tcl' (Wed Mar 18 22:08:51 EDT 2026)...
+#@ Begin verbose source ../scripts/core_config.tcl
+@file(core_config.tcl) 4: if {${rm_task} == "synthesis"} {
+   suppress_message CMD-041
+}
+if {${rm_task} == "synthesis"} {
+   suppress_message CMD-041
+}
+Warning : Unknown message ID. [MESG-10]
+        : Message ID 'CMD-041' cannot be found.
+@file(core_config.tcl) 11: set rm_core_top     FIR_63TAP
+set rm_core_top     FIR_63TAP
+@file(core_config.tcl) 17: set rm_scan_enable    [list  ] ;# Name of scan shift enable port
+set rm_scan_enable    [list  ] ;# Name of scan shift enable port
+@file(core_config.tcl) 18: set rm_dft_const      [list  ] ;# Name of test control port
+set rm_dft_const      [list  ] ;# Name of test control port
+@file(core_config.tcl) 24: set rm_clock_ports    [list CLK]
+set rm_clock_ports    [list CLK]
+@file(core_config.tcl) 25: set rm_reset_ports    [list RSTN] 
+set rm_reset_ports    [list RSTN] 
+@file(core_config.tcl) 26: set rm_virtual_clocks [list VCLK]
+set rm_virtual_clocks [list VCLK]
+@file(core_config.tcl) 31: set host_numcores 4
+set host_numcores 4
+#@ End verbose source ../scripts/core_config.tcl
+@file(compile.tcl) 21: source -echo -verbose ../scripts/tech.tcl
+Sourcing '../scripts/tech.tcl' (Wed Mar 18 22:08:51 EDT 2026)...
+#@ Begin verbose source ../scripts/tech.tcl
+@file(tech.tcl) 7: set rm_multi_core 1
+set rm_multi_core 1
+@file(tech.tcl) 13: set rm_foundry_lib_dirs /usr/cots/ip_libraries/tsmc/N16ADFP
+set rm_foundry_lib_dirs /usr/cots/ip_libraries/tsmc/N16ADFP
+@file(tech.tcl) 14: set rm_foundry_kit_dirs /usr/cots/pdk/N16ADFP
+set rm_foundry_kit_dirs /usr/cots/pdk/N16ADFP
+@file(tech.tcl) 15: set rm_sram_lib_dirs ${rm_foundry_lib_dirs}/sram/N16ADFP_SRAM/
+set rm_sram_lib_dirs ${rm_foundry_lib_dirs}/sram/N16ADFP_SRAM/
+@file(tech.tcl) 21: set rm_lef_tech_file ${rm_foundry_kit_dirs}/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef
+set rm_lef_tech_file ${rm_foundry_kit_dirs}/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef
+@file(tech.tcl) 22: set rm_gds_layer_map ${rm_foundry_kit_dirs}/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_Gdsout_11M.10a.map
+set rm_gds_layer_map ${rm_foundry_kit_dirs}/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_Gdsout_11M.10a.map
+@file(tech.tcl) 23: set rm_lef_layer_map ${rm_foundry_kit_dirs}/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_Qrc_11M.10a.map
+set rm_lef_layer_map ${rm_foundry_kit_dirs}/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_Qrc_11M.10a.map
+@file(tech.tcl) 31: set rm_base_reflib ${rm_foundry_lib_dirs}/stdcell/N16ADFP_StdCell
+set rm_base_reflib ${rm_foundry_lib_dirs}/stdcell/N16ADFP_StdCell
+@file(tech.tcl) 33: set rm_lef_reflib   [list ${rm_lef_tech_file} \
+                        ${rm_base_reflib}/LEF/lef/N16ADFP_StdCell.lef \
+                        ${rm_sram_lib_dirs}/LEF/N16ADFP_SRAM_100a.lef \
+]
+set rm_lef_reflib   [list ${rm_lef_tech_file} \
+                        ${rm_base_reflib}/LEF/lef/N16ADFP_StdCell.lef \
+                        ${rm_sram_lib_dirs}/LEF/N16ADFP_SRAM_100a.lef \
+]
+@file(tech.tcl) 41: set rm_db_search_path [concat ${rm_base_reflib}/CCS/ \
+                                ${rm_sram_lib_dirs}/NLDM/ \
+                              . \
+]
+set rm_db_search_path [concat ${rm_base_reflib}/CCS/ \
+                                ${rm_sram_lib_dirs}/NLDM/ \
+                              . \
+]
+@file(tech.tcl) 47: set rm_qrc_min_file ${rm_foundry_kit_dirs}/RC/N16ADFP_QRC/best/qrcTechFile
+set rm_qrc_min_file ${rm_foundry_kit_dirs}/RC/N16ADFP_QRC/best/qrcTechFile
+@file(tech.tcl) 48: set rm_qrc_max_file ${rm_foundry_kit_dirs}/RC/N16ADFP_QRC/worst/qrcTechFile
+set rm_qrc_max_file ${rm_foundry_kit_dirs}/RC/N16ADFP_QRC/worst/qrcTechFile
+@file(tech.tcl) 52: set base_tt_0p8v_25c_lib               "N16ADFP_StdCelltt0p8v25c_ccs"
+set base_tt_0p8v_25c_lib               "N16ADFP_StdCelltt0p8v25c_ccs"
+@file(tech.tcl) 53: set base_ss_0p72v_m40c_lib             "N16ADFP_StdCellss0p72vm40c_ccs"
+set base_ss_0p72v_m40c_lib             "N16ADFP_StdCellss0p72vm40c_ccs"
+@file(tech.tcl) 54: set base_ss_0p72v_125c_lib             "N16ADFP_StdCellss0p72v125c_ccs"
+set base_ss_0p72v_125c_lib             "N16ADFP_StdCellss0p72v125c_ccs"
+@file(tech.tcl) 55: set base_ff_0p88v_m40c_lib             "N16ADFP_StdCellff0p88vm40c_ccs"
+set base_ff_0p88v_m40c_lib             "N16ADFP_StdCellff0p88vm40c_ccs"
+@file(tech.tcl) 56: set base_ff_0p88v_125c_lib             "N16ADFP_StdCellff0p88v125c_ccs"
+set base_ff_0p88v_125c_lib             "N16ADFP_StdCellff0p88v125c_ccs"
+@file(tech.tcl) 59: set sram_tt_0p8v_25c_lib               "N16ADFP_SRAM_tt0p8v0p8v25c_100a"
+set sram_tt_0p8v_25c_lib               "N16ADFP_SRAM_tt0p8v0p8v25c_100a"
+@file(tech.tcl) 60: set sram_ss_0p72v_m40c_lib             "N16ADFP_SRAM_ss0p72v0p72vm40c_100a"
+set sram_ss_0p72v_m40c_lib             "N16ADFP_SRAM_ss0p72v0p72vm40c_100a"
+@file(tech.tcl) 61: set sram_ss_0p72v_125c_lib             "N16ADFP_SRAM_ss0p72v0p72v125c_100a"
+set sram_ss_0p72v_125c_lib             "N16ADFP_SRAM_ss0p72v0p72v125c_100a"
+@file(tech.tcl) 62: set sram_ff_0p88v_m40c_lib             "N16ADFP_SRAM_ff0p88v0p88vm40c_100a"
+set sram_ff_0p88v_m40c_lib             "N16ADFP_SRAM_ff0p88v0p88vm40c_100a"
+@file(tech.tcl) 63: set sram_ff_0p88v_125c_lib             "N16ADFP_SRAM_ff0p88v0p88v125c_100a"
+set sram_ff_0p88v_125c_lib             "N16ADFP_SRAM_ff0p88v0p88v125c_100a"
+@file(tech.tcl) 67: set rm_base_lib "${base_ss_0p72v_125c_lib}.db:${base_ss_0p72v_125c_lib}"
+set rm_base_lib "${base_ss_0p72v_125c_lib}.db:${base_ss_0p72v_125c_lib}"
+@file(tech.tcl) 71: set rm_target_library [list ${base_ss_0p72v_125c_lib}.db \ ${sram_ss_0p72v_125c_lib}.db
+]
+set rm_target_library [list ${base_ss_0p72v_125c_lib}.db \ ${sram_ss_0p72v_125c_lib}.db
+]
+@file(tech.tcl) 82: set rm_mintypmax_libs [list \
+    ${base_ff_0p88v_125c_lib}.db ${base_ff_0p88v_m40c_lib}.db ${base_tt_0p8v_25c_lib}.db ${base_ss_0p72v_125c_lib}.db ${base_ss_0p72v_m40c_lib}.db \
+]
+set rm_mintypmax_libs [list \
+    ${base_ff_0p88v_125c_lib}.db ${base_ff_0p88v_m40c_lib}.db ${base_tt_0p8v_25c_lib}.db ${base_ss_0p72v_125c_lib}.db ${base_ss_0p72v_m40c_lib}.db \
+]
+@file(tech.tcl) 90: set rm_base_dirs   ${rm_base_reflib}/CCS/ 
+set rm_base_dirs   ${rm_base_reflib}/CCS/ 
+@file(tech.tcl) 91: set rm_sram_dirs   ${rm_sram_lib_dirs}/NLDM/
+set rm_sram_dirs   ${rm_sram_lib_dirs}/NLDM/
+@file(tech.tcl) 94: set tt_0p8v_25c_libs   [list ${rm_base_dirs}/${base_tt_0p8v_25c_lib}.lib ${rm_sram_dirs}/${sram_tt_0p8v_25c_lib}.lib ]
+set tt_0p8v_25c_libs   [list ${rm_base_dirs}/${base_tt_0p8v_25c_lib}.lib ${rm_sram_dirs}/${sram_tt_0p8v_25c_lib}.lib ]
+@file(tech.tcl) 95: set ff_0p88v_m40c_libs [list ${rm_base_dirs}/${base_ff_0p88v_m40c_lib}.lib ${rm_sram_dirs}/${sram_ff_0p88v_m40c_lib}.lib ]
+set ff_0p88v_m40c_libs [list ${rm_base_dirs}/${base_ff_0p88v_m40c_lib}.lib ${rm_sram_dirs}/${sram_ff_0p88v_m40c_lib}.lib ]
+@file(tech.tcl) 96: set ff_0p88v_125c_libs [list ${rm_base_dirs}/${base_ff_0p88v_125c_lib}.lib ${rm_sram_dirs}/${sram_ff_0p88v_125c_lib}.lib ]
+set ff_0p88v_125c_libs [list ${rm_base_dirs}/${base_ff_0p88v_125c_lib}.lib ${rm_sram_dirs}/${sram_ff_0p88v_125c_lib}.lib ]
+@file(tech.tcl) 97: set ss_0p72v_m40c_libs [list ${rm_base_dirs}/${base_ss_0p72v_m40c_lib}.lib ${rm_sram_dirs}/${sram_ss_0p72v_m40c_lib}.lib ]
+set ss_0p72v_m40c_libs [list ${rm_base_dirs}/${base_ss_0p72v_m40c_lib}.lib ${rm_sram_dirs}/${sram_ss_0p72v_m40c_lib}.lib ]
+@file(tech.tcl) 98: set ss_0p72v_125c_libs [list ${rm_base_dirs}/${base_ss_0p72v_125c_lib}.lib ${rm_sram_dirs}/${sram_ss_0p72v_125c_lib}.lib ]
+set ss_0p72v_125c_libs [list ${rm_base_dirs}/${base_ss_0p72v_125c_lib}.lib ${rm_sram_dirs}/${sram_ss_0p72v_125c_lib}.lib ]
+@file(tech.tcl) 103: set constraints_sdc         "../scripts/constraints.tcl"
+set constraints_sdc         "../scripts/constraints.tcl"
+@file(tech.tcl) 104: set cts_constraints_sdc     "../scripts/constraints_cts.tcl"
+set cts_constraints_sdc     "../scripts/constraints_cts.tcl"
+@file(tech.tcl) 105: set postcts_constraints_sdc "../scripts/constraints_postcts.tcl"
+set postcts_constraints_sdc "../scripts/constraints_postcts.tcl"
+@file(tech.tcl) 108: set rm_tie_hi_lo_list [list TIEHBWP16P90 TIELBWP16P90]
+set rm_tie_hi_lo_list [list TIEHBWP16P90 TIELBWP16P90]
+@file(tech.tcl) 111: set rm_tie_cell_pin [list "Z" "ZN"]
+set rm_tie_cell_pin [list "Z" "ZN"]
+@file(tech.tcl) 113: set rm_clock_cell [list]
+set rm_clock_cell [list]
+@file(tech.tcl) 114: set rm_clock_buf_cap_cell [list ]
+set rm_clock_buf_cap_cell [list ]
+@file(tech.tcl) 115: set rm_clock_inv_cap_cell [list ]
+set rm_clock_inv_cap_cell [list ]
+@file(tech.tcl) 116: set rm_clock_icg_cell [list ]
+set rm_clock_icg_cell [list ]
+@file(tech.tcl) 117: set rm_clock_size_cell [list $rm_clock_inv_cap_cell $rm_clock_buf_cap_cell]
+set rm_clock_size_cell [list $rm_clock_inv_cap_cell $rm_clock_buf_cap_cell]
+@file(tech.tcl) 119: set lvs_exclude_cells [list FILL64BWP16P90 FILL32BWP16P90 FILL16BWP16P90 FILL8BWP16P90 FILL4BWP16P90 FILL2BWP16P90 FILL1BWP16P90]
+set lvs_exclude_cells [list FILL64BWP16P90 FILL32BWP16P90 FILL16BWP16P90 FILL8BWP16P90 FILL4BWP16P90 FILL2BWP16P90 FILL1BWP16P90]
+@file(tech.tcl) 122: set rm_logic_delay_cell [list BUFFD2BWP16P90 BUFFD4BWP16P90 BUFFD8BWP16P90 BUFFD16BWP16P90]
+set rm_logic_delay_cell [list BUFFD2BWP16P90 BUFFD4BWP16P90 BUFFD8BWP16P90 BUFFD16BWP16P90]
+@file(tech.tcl) 123: set rm_clock_delay_cell $rm_logic_delay_cell
+set rm_clock_delay_cell $rm_logic_delay_cell
+@file(tech.tcl) 126: set hold_fixing_cells [list BUFFD2BWP16P90 BUFFD4BWP16P90 BUFFD8BWP16P90 BUFFD16BWP16P90]
+set hold_fixing_cells [list BUFFD2BWP16P90 BUFFD4BWP16P90 BUFFD8BWP16P90 BUFFD16BWP16P90]
+@file(tech.tcl) 136: set rm_clock_period 1.25
+set rm_clock_period 1.25
+@file(tech.tcl) 143: set rm_load_value 0.05 ;# Capacitive load in pF placed on all outputs
+set rm_load_value 0.05 ;# Capacitive load in pF placed on all outputs
+@file(tech.tcl) 144: set rm_driving_cell BUFFD8BWP16P90 ;# The driving cell for all inputs
+set rm_driving_cell BUFFD8BWP16P90 ;# The driving cell for all inputs
+@file(tech.tcl) 145: set rm_driving_pin Z ;# The output pin of the driving cell
+set rm_driving_pin Z ;# The output pin of the driving cell
+@file(tech.tcl) 148: set rm_dont_use_list [list *BWP20* *D1* INVD1BWP20P90LVT ]
+set rm_dont_use_list [list *BWP20* *D1* INVD1BWP20P90LVT ]
+@file(tech.tcl) 149: foreach dont_use ${rm_dont_use_list} {
+    set_dont_use [get_lib_cells */${dont_use} ]
+}
+foreach dont_use ${rm_dont_use_list} {
+    set_dont_use [get_lib_cells */${dont_use} ]
+}
+Warning : Could not find requested search value. [SDC-208] [get_lib_cells]
+        : The 'get_lib_cells' command cannot find any library cells for the specified objects.
+        : Use get_* commands to find the objects along with a wild card entry in the name of the object to check if the object is existing with different naming style.
+Error   : A required object parameter could not be found. [TUI-61] [parse_options]
+        : An object of type 'lib_cell' named '' could not be found.
+        : Check to make sure that the object exists and is of the correct type.  The 'what_is' command can be used to determine the type of an object.
+
+Usage: set_dont_use <lib_cell>+
+
+    <lib_cell>+:
+        ports 
+#@ End verbose source ../scripts/tech.tcl
+#@ End verbose source /h/rkim12/EE166/Lab2_mod/scripts/compile.tcl
+
+Encountered problems processing file: /h/rkim12/EE166/Lab2_mod/scripts/compile.tcl
+WARNING: This version of the tool is 974 days old.
+@genus:root: 2> 

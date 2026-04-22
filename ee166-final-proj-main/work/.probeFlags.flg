@@ -1,0 +1,2 @@
+			ida_probe -wave -wave_probe_args "tb.u_dut.CLK tb.u_dut.EN tb.u_dut.RSTN" -uvm_record_depth "10" -uvm FALSE 
+			ida_probe -wave -wave_probe_args "tb.u_dut.out tb.u_dut.samples" -uvm_record_depth "10" -uvm FALSE 

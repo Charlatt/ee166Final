@@ -1,0 +1,112 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2023 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[16:12:03.306026] Configured Lic search path (21.01-s002): 5280@vm-license1:27000@vm-license1
+
+Version: 21.18-s082_1, built Tue Jul 18 10:08:41 PDT 2023
+Options: 
+Date:    Sat Feb 28 16:12:03 2026
+Host:    dell52 (x86_64 w/Linux 4.18.0-553.71.1.el8_10.x86_64) (32cores*128cpus*2physical cpus*Intel(R) Xeon(R) Gold 6338 CPU @ 2.00GHz 49152KB) (527253140KB)
+PID:     2206117
+OS:      Red Hat Enterprise Linux release 8.10 (Ootpa)
+
+
+[16:12:03.376761] Periodic Lic check successful
+[16:12:03.376768] Feature usage summary:
+[16:12:03.376768] Genus_Synthesis
+Checking out license: Genus_Synthesis
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Loading tool scripts...
+Finished loading tool scripts (43 seconds elapsed).
+
+WARNING: This version of the tool is 956 days old.
+@genus:root: 1> read_vcd
+Error   : A required argument was not specified. [TUI-202] [parse_options]
+        : An argument of type '<string>' was not specified.
+        : Rerun the command specifying all required arguments.
+  read_vcd: reads in Value Change Dump (VCD) file for power analysis 
+
+Usage: read_vcd [-static] [-scale <string>] [-start_time <float>] [-end_time <float>] [-time_window <float>] [-activity_profile] [-vcd_scope <string>] [-hinst <string>]
+           [-simvision] [-write_sst2 <string>] [-nocase] [-scale_to_sdc_frequency] <string>
+
+    [-static]:
+        do static VCD analysis 
+    [-scale <string>]:
+        the scaling factor 
+    [-start_time <float>]:
+        time in picoseconds at which VCD analysis starts 
+    [-end_time <float>]:
+        time in picoseconds at which VCD analysis ends 
+    [-time_window <float>]:
+        period in picoseconds for doing incremental analysis 
+    [-activity_profile]:
+        monitor switching activity of objects in VCD file 
+    [-vcd_scope <string>]:
+        the instance for VCD parsing 
+    [-hinst <string>]:
+        the instance in the design hierarchy corresponding to the instance in the VCD selected for parsing 
+    [-simvision]:
+        generate SST2 database for running simvision (default false) 
+    [-write_sst2 <string>]:
+        SST2 database file name for viewing in other waveform viewers 
+    [-nocase]:
+        ignore the case for finding design objects (default false) 
+    [-scale_to_sdc_frequency]:
+        scales activities to sdc activities 
+    <string>:
+        the name of the VCD file 
+@genus:root: 2> read_vcd -static -vcd_scope
+Error   : A required argument is missing for a flagged command option. [TUI-60] [parse_options]
+        : The flag is '-vcd_scope'.
+        : Check the command usage and correct the input to the command.
+  read_vcd: reads in Value Change Dump (VCD) file for power analysis 
+
+Usage: read_vcd [-static] [-scale <string>] [-start_time <float>] [-end_time <float>] [-time_window <float>] [-activity_profile] [-vcd_scope <string>] [-hinst <string>]
+           [-simvision] [-write_sst2 <string>] [-nocase] [-scale_to_sdc_frequency] <string>
+
+    [-static]:
+        do static VCD analysis 
+    [-scale <string>]:
+        the scaling factor 
+    [-start_time <float>]:
+        time in picoseconds at which VCD analysis starts 
+    [-end_time <float>]:
+        time in picoseconds at which VCD analysis ends 
+    [-time_window <float>]:
+        period in picoseconds for doing incremental analysis 
+    [-activity_profile]:
+        monitor switching activity of objects in VCD file 
+    [-vcd_scope <string>]:
+        the instance for VCD parsing 
+    [-hinst <string>]:
+        the instance in the design hierarchy corresponding to the instance in the VCD selected for parsing 
+    [-simvision]:
+        generate SST2 database for running simvision (default false) 
+    [-write_sst2 <string>]:
+        SST2 database file name for viewing in other waveform viewers 
+    [-nocase]:
+        ignore the case for finding design objects (default false) 
+    [-scale_to_sdc_frequency]:
+        scales activities to sdc activities 
+    <string>:
+        the name of the VCD file 
+@genus:root: 3> read_vcd -static -vcd_scope u_dut ../rtl/FIR_63TAP.vcd
+Error   : No designs are available. A design must first be read in and elaborated. [TUI-10] [read_vcd]
+        : There is no design here.
+        : A design must first be read in with 'read_hdl' command and elaborated with 'elaborate' command.
+Failed on find_unique_design
+
+Another Ctrl-C within 1 second will terminate the tool.
+CURRENT RESOURCES: RT {elapsed: 130s, ST: 8s, FG: 8s, CPU: 1.4%}, MEM {curr: 1.0G, peak: 1.0G, phys curr: 0.4G, phys peak: 0.4G}, SYS {load: 18.7, cpu: 128, total: 502.8G, free: 284.1G}
+
+Another Ctrl-C within 1 second will terminate the tool.
+CURRENT RESOURCES: RT {elapsed: 131s, ST: 8s, FG: 8s, CPU: 1.4%}, MEM {curr: 1.0G, peak: 1.0G, phys curr: 0.4G, phys peak: 0.4G}, SYS {load: 18.7, cpu: 128, total: 502.8G, free: 284.1G}
+Abnormal exit.

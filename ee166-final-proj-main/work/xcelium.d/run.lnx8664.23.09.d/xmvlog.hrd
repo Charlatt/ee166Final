@@ -1,0 +1,17 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-YDIR
+../rtl/
+-sv
+-INCDIR
+../rtl
+-LIBEXT
+.v
+-LIBEXT
+.sv
+-LIBEXT
+.vlib
+-INCDIR
+/ee/166/CHIPKIT/ip/rtl_inc

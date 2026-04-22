@@ -1,0 +1,22 @@
+Host Info
+	Hostname: vm-hw05
+	Verisium Debug PID: 2426236
+	OS Version: 4.18.0-553.89.1.el8_10.x86_64
+	OS Architecture: amd64
+	JDK Version: 1.8.0_202-CDS_2021_b1
+	Scripting Port: 46529
+	xmsim PID: 2425901
+Design
+	Design Database: /h/rkim12/EE166/Lab2_mod/work/xcelium.d/worklib/tb/sv/debug_db/debug_db_design
+Versions
+	Verisium Debug Version: 24.09.001-s
+	xcelium version: 23.09-s001
+	lwd/snapshot version: 23.09-s001
+Invocation command: /usr/cots/cadence/VERISIUMDEBUG2409/tools/bin/verisium_debug_internal   -connect dc:vm-hw05.eecs.tufts.edu:56103 -interactive
+Log Files
+	env log: /h/rkim12/EE166/Lab2_mod/work/verisium_debug_logs/env.log
+	verisium_debug log: /h/rkim12/EE166/Lab2_mod/work/verisium_debug_logs/verisium_debug.log
+	verisium_debug_karaf log: /h/rkim12/EE166/Lab2_mod/work/verisium_debug_logs/verisium_debug_karaf.log
+	ida log: /h/rkim12/EE166/Lab2_mod/work/verisium_debug_logs/ida.log
+	cdns_vwdbr log: /h/rkim12/EE166/Lab2_mod/work/verisium_debug_logs/cdns_vwdbr.log
+	perf log: /h/rkim12/EE166/Lab2_mod/work/verisium_debug_logs/perf.log

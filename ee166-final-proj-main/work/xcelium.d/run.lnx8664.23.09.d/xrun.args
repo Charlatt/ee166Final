@@ -1,0 +1,18 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-sv
+-gui
+-64bit
+-lwdgen
+-access
++rwc
+-verisium
++incdir+../rtl
+-top
+tb
+-f
+../rtl/lab1.vc
+-l
+./simulation.log

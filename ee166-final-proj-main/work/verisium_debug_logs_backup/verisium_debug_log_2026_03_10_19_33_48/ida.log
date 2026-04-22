@@ -1,0 +1,66 @@
+15:56:48:5648 [important] [FelixStartLevel] WARN  - InfoSource version is empty in getMajorMinorVersion()
+15:56:48:5648 [important] [FelixStartLevel] WARN  - InfoSource version not found!! skipping relevant version checks
+15:56:49:5649 [important] [FelixStartLevel] INFO  - xmsim gcc version is 9.3.0
+15:56:49:5649 [important] [FelixStartLevel] INFO  - indago gcc version is 9.3.0
+15:56:49:5649 [important] [TangoTaskManager-4] WARN  - An Indago Snapshot/LWD was not loaded. Scripting API functionality may be impacted.
+15:56:49:5649 [com.cadence.smartlog.bl.common.SLUtils] [TangoTaskManager-5] INFO  - query: 
+15:56:53:5653 [user_actions] [AWT-EventQueue-0] DEBUG - refreshSchematicAttributes (SchematicActionsManager$24)
+
+15:56:54:5654 [user_actions] [AWT-EventQueue-0] DEBUG - LiveSimulationRefreshWaveform (GSLLiveSimulationRefreshWaveformAction)
+
+15:56:54:5654 [user_actions] [AWT-EventQueue-0] DEBUG - LiveSimulationRefreshWaveform (GSLLiveSimulationRefreshWaveformAction)
+
+15:56:54:5654 [user_actions] [AWT-EventQueue-0] DEBUG - LiveSimulationRefreshWaveform (GSLLiveSimulationRefreshWaveformAction)
+
+15:56:54:5654 [important] [TangoTaskManager-4] INFO  - ScriptingActivator while loop has finished
+15:57:04:574 [user_actions] [AWT-EventQueue-0] DEBUG - refreshSchematicAttributes (SchematicActionsManager$24)
+
+15:57:33:5733 [user_actions] [AWT-EventQueue-0] DEBUG - run (GSLInteractiveRunPanel$3)
+
+15:57:33:5733 [user_actions] [AWT-EventQueue-0] DEBUG - RUN_FORWARD (GSLDebugStepAction)
+
+15:57:34:5734 [user_actions] [AWT-EventQueue-0] DEBUG - LiveSimulationRefreshWaveform (GSLLiveSimulationRefreshWaveformAction)
+
+15:57:46:5746 [user_actions] [AWT-EventQueue-0] DEBUG - recordLogs (GSLRecordLogsAction)
+
+15:57:47:5747 [com.cadence.smartlog.bl.common.SLUtils] [TangoTaskManager-8] INFO  - query: 
+15:57:47:5747 [com.cadence.smartlog.bl.common.SLUtils] [Thread-15] INFO  - query: 
+15:57:47:5747 [com.cadence.smartlog.bl.common.SLUtils] [TangoTaskManager-12] INFO  - query: 
+15:57:48:5748 [user_actions] [AWT-EventQueue-0] DEBUG - run (GSLInteractiveRunPanel$3)
+
+15:57:48:5748 [user_actions] [AWT-EventQueue-0] DEBUG - RUN_FORWARD (GSLDebugStepAction)
+
+15:57:48:5748 [user_actions] [AWT-EventQueue-0] DEBUG - LiveSimulationRefreshWaveform (GSLLiveSimulationRefreshWaveformAction)
+
+15:57:48:5748 [important] [Indago DAC notify callback receiver] WARN  - got the following for key values in msg_destination_files: 1
+15:57:48:5748 [important] [Indago DAC notify callback receiver] WARN  - Dest File: key=1 val=stdout, shortName: stdout
+15:57:48:5748 [com.cadence.smartlog.bl.common.SLUtils] [TangoTaskManager-0] INFO  - query: 
+15:57:48:5748 [com.cadence.smartlog.bl.common.SLUtils] [Thread-7] INFO  - query: 
+15:57:48:5748 [com.cadence.smartlog.bl.common.SLUtils] [TangoTaskManager-3] INFO  - query: 
+15:57:50:5750 [user_actions] [AWT-EventQueue-0] DEBUG - RESET (GSLDebugStepAction)
+
+15:57:51:5751 [com.cadence.smartlog.bl.common.SLUtils] [Thread-10] INFO  - query: 
+15:57:51:5751 [com.cadence.smartlog.bl.common.SLUtils] [TangoTaskManager-2] INFO  - query: 
+15:57:51:5751 [com.cadence.smartlog.bl.common.SLUtils] [TangoTaskManager-4] INFO  - query: 
+15:57:51:5751 [com.cadence.smartlog.bl.common.SLUtils] [TangoTaskManager-13] INFO  - query: 
+15:57:51:5751 [com.cadence.smartlog.bl.common.SLUtils] [Thread-12] INFO  - query: 
+15:57:51:5751 [com.cadence.smartlog.bl.common.SLUtils] [TangoTaskManager-6] INFO  - query: 
+15:57:58:5758 [user_actions] [AWT-EventQueue-0] DEBUG - runPrevScripts (RunPrevScriptsAction)
+
+15:58:00:580 [user_actions] [AWT-EventQueue-0] DEBUG - cancel (GUFIDefaultDialog$3)
+	dialog = scriptsDialog (GSLRunPreviousScriptsDialog)
+
+15:58:11:5811 [user_actions] [AWT-EventQueue-0] DEBUG - run (GSLInteractiveRunPanel$3)
+
+15:58:11:5811 [user_actions] [AWT-EventQueue-0] DEBUG - RUN_FORWARD (GSLDebugStepAction)
+
+15:58:12:5812 [user_actions] [AWT-EventQueue-0] DEBUG - LiveSimulationRefreshWaveform (GSLLiveSimulationRefreshWaveformAction)
+
+15:58:12:5812 [important] [Indago DAC notify callback receiver] WARN  - got the following for key values in msg_destination_files: 1
+15:58:12:5812 [important] [Indago DAC notify callback receiver] WARN  - Dest File: key=1 val=stdout, shortName: stdout
+15:58:12:5812 [com.cadence.smartlog.bl.common.SLUtils] [TangoTaskManager-9] INFO  - query: 
+15:58:12:5812 [com.cadence.smartlog.bl.common.SLUtils] [Thread-16] INFO  - query: 
+15:58:12:5812 [com.cadence.smartlog.bl.common.SLUtils] [TangoTaskManager-1] INFO  - query: 
+15:59:07:597 [user_actions] [AWT-EventQueue-0] DEBUG - OK (GUFIQuestionDialog$1)
+	dialog = confirmExitDlg (GUFIQuestionDialog)
+

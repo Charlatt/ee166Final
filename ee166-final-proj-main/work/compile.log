@@ -1,0 +1,867 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2023 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[15:59:25.306138] Configured Lic search path (21.01-s002): 5280@vm-license1:27000@vm-license1
+
+Version: 21.18-s082_1, built Tue Jul 18 10:08:41 PDT 2023
+Options: -files /h/rkim12/EE166/Lab2/scripts/compile.tcl -log compile 
+Date:    Tue Feb 17 15:59:25 2026
+Host:    vm-hw05 (x86_64 w/Linux 4.18.0-553.89.1.el8_10.x86_64) (6cores*6cpus*1physical cpu*INTEL(R) XEON(R) SILVER 4510 30720KB) (16138920KB)
+PID:     3767722
+OS:      Red Hat Enterprise Linux release 8.10 (Ootpa)
+
+
+[15:59:25.374352] Periodic Lic check successful
+[15:59:25.374363] Feature usage summary:
+[15:59:25.374363] Genus_Synthesis
+Checking out license: Genus_Synthesis
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Loading tool scripts...
+Finished loading tool scripts (8 seconds elapsed).
+
+#@ Processing -files option
+@genus 1> source /h/rkim12/EE166/Lab2/scripts/compile.tcl
+#@ Begin verbose source /h/rkim12/EE166/Lab2/scripts/compile.tcl
+@file(compile.tcl) 5: sh hostname
+vm-hw05
+@file(compile.tcl) 6: date
+Tue Feb 17 15:59:34 EST 2026
+@file(compile.tcl) 8: set start_time [clock seconds]
+@file(compile.tcl) 10: set rm_task synthesis
+@file(compile.tcl) 16: source -echo -verbose ../scripts/core_config.tcl
+Sourcing '../scripts/core_config.tcl' (Tue Feb 17 15:59:34 EST 2026)...
+#@ Begin verbose source ../scripts/core_config.tcl
+@file(core_config.tcl) 4: if {${rm_task} == "synthesis"} {
+   suppress_message CMD-041
+}
+if {${rm_task} == "synthesis"} {
+   suppress_message CMD-041
+}
+Warning : Unknown message ID. [MESG-10]
+        : Message ID 'CMD-041' cannot be found.
+@file(core_config.tcl) 11: set rm_core_top     FIR_63TAP
+set rm_core_top     FIR_63TAP
+@file(core_config.tcl) 17: set rm_scan_enable    [list  ] ;# Name of scan shift enable port
+set rm_scan_enable    [list  ] ;# Name of scan shift enable port
+@file(core_config.tcl) 18: set rm_dft_const      [list  ] ;# Name of test control port
+set rm_dft_const      [list  ] ;# Name of test control port
+@file(core_config.tcl) 24: set rm_clock_ports    [list CLK]
+set rm_clock_ports    [list CLK]
+@file(core_config.tcl) 25: set rm_reset_ports    [list RSTN] 
+set rm_reset_ports    [list RSTN] 
+@file(core_config.tcl) 26: set rm_virtual_clocks [list VCLK]
+set rm_virtual_clocks [list VCLK]
+@file(core_config.tcl) 31: set host_numcores 4
+set host_numcores 4
+#@ End verbose source ../scripts/core_config.tcl
+@file(compile.tcl) 21: source -echo -verbose ../scripts/tech.tcl
+Sourcing '../scripts/tech.tcl' (Tue Feb 17 15:59:34 EST 2026)...
+#@ Begin verbose source ../scripts/tech.tcl
+@file(tech.tcl) 7: set rm_multi_core 1
+set rm_multi_core 1
+@file(tech.tcl) 13: set rm_foundry_lib_dirs /usr/cots/ip_libraries/tsmc/N16ADFP
+set rm_foundry_lib_dirs /usr/cots/ip_libraries/tsmc/N16ADFP
+@file(tech.tcl) 14: set rm_foundry_kit_dirs /usr/cots/pdk/N16ADFP
+set rm_foundry_kit_dirs /usr/cots/pdk/N16ADFP
+@file(tech.tcl) 15: set rm_sram_lib_dirs ${rm_foundry_lib_dirs}/sram/N16ADFP_SRAM/
+set rm_sram_lib_dirs ${rm_foundry_lib_dirs}/sram/N16ADFP_SRAM/
+@file(tech.tcl) 21: set rm_lef_tech_file ${rm_foundry_kit_dirs}/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef
+set rm_lef_tech_file ${rm_foundry_kit_dirs}/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef
+@file(tech.tcl) 22: set rm_gds_layer_map ${rm_foundry_kit_dirs}/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_Gdsout_11M.10a.map
+set rm_gds_layer_map ${rm_foundry_kit_dirs}/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_Gdsout_11M.10a.map
+@file(tech.tcl) 23: set rm_lef_layer_map ${rm_foundry_kit_dirs}/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_Qrc_11M.10a.map
+set rm_lef_layer_map ${rm_foundry_kit_dirs}/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_Qrc_11M.10a.map
+@file(tech.tcl) 31: set rm_base_reflib ${rm_foundry_lib_dirs}/stdcell/N16ADFP_StdCell
+set rm_base_reflib ${rm_foundry_lib_dirs}/stdcell/N16ADFP_StdCell
+@file(tech.tcl) 33: set rm_lef_reflib   [list ${rm_lef_tech_file} \
+                        ${rm_base_reflib}/LEF/lef/N16ADFP_StdCell.lef \
+                        ${rm_sram_lib_dirs}/LEF/N16ADFP_SRAM_100a.lef \
+]
+set rm_lef_reflib   [list ${rm_lef_tech_file} \
+                        ${rm_base_reflib}/LEF/lef/N16ADFP_StdCell.lef \
+                        ${rm_sram_lib_dirs}/LEF/N16ADFP_SRAM_100a.lef \
+]
+@file(tech.tcl) 41: set rm_db_search_path [concat ${rm_base_reflib}/CCS/ \
+                                ${rm_sram_lib_dirs}/NLDM/ \
+                              . \
+]
+set rm_db_search_path [concat ${rm_base_reflib}/CCS/ \
+                                ${rm_sram_lib_dirs}/NLDM/ \
+                              . \
+]
+@file(tech.tcl) 47: set rm_qrc_min_file ${rm_foundry_kit_dirs}/RC/N16ADFP_QRC/best/qrcTechFile
+set rm_qrc_min_file ${rm_foundry_kit_dirs}/RC/N16ADFP_QRC/best/qrcTechFile
+@file(tech.tcl) 48: set rm_qrc_max_file ${rm_foundry_kit_dirs}/RC/N16ADFP_QRC/worst/qrcTechFile
+set rm_qrc_max_file ${rm_foundry_kit_dirs}/RC/N16ADFP_QRC/worst/qrcTechFile
+@file(tech.tcl) 52: set base_tt_0p8v_25c_lib               "N16ADFP_StdCelltt0p8v25c_ccs"
+set base_tt_0p8v_25c_lib               "N16ADFP_StdCelltt0p8v25c_ccs"
+@file(tech.tcl) 53: set base_ss_0p72v_m40c_lib             "N16ADFP_StdCellss0p72vm40c_ccs"
+set base_ss_0p72v_m40c_lib             "N16ADFP_StdCellss0p72vm40c_ccs"
+@file(tech.tcl) 54: set base_ss_0p72v_125c_lib             "N16ADFP_StdCellss0p72v125c_ccs"
+set base_ss_0p72v_125c_lib             "N16ADFP_StdCellss0p72v125c_ccs"
+@file(tech.tcl) 55: set base_ff_0p88v_m40c_lib             "N16ADFP_StdCellff0p88vm40c_ccs"
+set base_ff_0p88v_m40c_lib             "N16ADFP_StdCellff0p88vm40c_ccs"
+@file(tech.tcl) 56: set base_ff_0p88v_125c_lib             "N16ADFP_StdCellff0p88v125c_ccs"
+set base_ff_0p88v_125c_lib             "N16ADFP_StdCellff0p88v125c_ccs"
+@file(tech.tcl) 59: set sram_tt_0p8v_25c_lib               "N16ADFP_SRAM_tt0p8v0p8v25c_100a"
+set sram_tt_0p8v_25c_lib               "N16ADFP_SRAM_tt0p8v0p8v25c_100a"
+@file(tech.tcl) 60: set sram_ss_0p72v_m40c_lib             "N16ADFP_SRAM_ss0p72v0p72vm40c_100a"
+set sram_ss_0p72v_m40c_lib             "N16ADFP_SRAM_ss0p72v0p72vm40c_100a"
+@file(tech.tcl) 61: set sram_ss_0p72v_125c_lib             "N16ADFP_SRAM_ss0p72v0p72v125c_100a"
+set sram_ss_0p72v_125c_lib             "N16ADFP_SRAM_ss0p72v0p72v125c_100a"
+@file(tech.tcl) 62: set sram_ff_0p88v_m40c_lib             "N16ADFP_SRAM_ff0p88v0p88vm40c_100a"
+set sram_ff_0p88v_m40c_lib             "N16ADFP_SRAM_ff0p88v0p88vm40c_100a"
+@file(tech.tcl) 63: set sram_ff_0p88v_125c_lib             "N16ADFP_SRAM_ff0p88v0p88v125c_100a"
+set sram_ff_0p88v_125c_lib             "N16ADFP_SRAM_ff0p88v0p88v125c_100a"
+@file(tech.tcl) 67: set rm_base_lib "${base_ss_0p72v_125c_lib}.db:${base_ss_0p72v_125c_lib}"
+set rm_base_lib "${base_ss_0p72v_125c_lib}.db:${base_ss_0p72v_125c_lib}"
+@file(tech.tcl) 71: set rm_target_library [list ${base_ss_0p72v_125c_lib}.db \ ${sram_ss_0p72v_125c_lib}.db
+]
+set rm_target_library [list ${base_ss_0p72v_125c_lib}.db \ ${sram_ss_0p72v_125c_lib}.db
+]
+@file(tech.tcl) 82: set rm_mintypmax_libs [list \
+    ${base_ff_0p88v_125c_lib}.db ${base_ff_0p88v_m40c_lib}.db ${base_tt_0p8v_25c_lib}.db ${base_ss_0p72v_125c_lib}.db ${base_ss_0p72v_m40c_lib}.db \
+]
+set rm_mintypmax_libs [list \
+    ${base_ff_0p88v_125c_lib}.db ${base_ff_0p88v_m40c_lib}.db ${base_tt_0p8v_25c_lib}.db ${base_ss_0p72v_125c_lib}.db ${base_ss_0p72v_m40c_lib}.db \
+]
+@file(tech.tcl) 90: set rm_base_dirs   ${rm_base_reflib}/CCS/ 
+set rm_base_dirs   ${rm_base_reflib}/CCS/ 
+@file(tech.tcl) 91: set rm_sram_dirs   ${rm_sram_lib_dirs}/NLDM/
+set rm_sram_dirs   ${rm_sram_lib_dirs}/NLDM/
+@file(tech.tcl) 94: set tt_0p8v_25c_libs   [list ${rm_base_dirs}/${base_tt_0p8v_25c_lib}.lib ${rm_sram_dirs}/${sram_tt_0p8v_25c_lib}.lib ]
+set tt_0p8v_25c_libs   [list ${rm_base_dirs}/${base_tt_0p8v_25c_lib}.lib ${rm_sram_dirs}/${sram_tt_0p8v_25c_lib}.lib ]
+@file(tech.tcl) 95: set ff_0p88v_m40c_libs [list ${rm_base_dirs}/${base_ff_0p88v_m40c_lib}.lib ${rm_sram_dirs}/${sram_ff_0p88v_m40c_lib}.lib ]
+set ff_0p88v_m40c_libs [list ${rm_base_dirs}/${base_ff_0p88v_m40c_lib}.lib ${rm_sram_dirs}/${sram_ff_0p88v_m40c_lib}.lib ]
+@file(tech.tcl) 96: set ff_0p88v_125c_libs [list ${rm_base_dirs}/${base_ff_0p88v_125c_lib}.lib ${rm_sram_dirs}/${sram_ff_0p88v_125c_lib}.lib ]
+set ff_0p88v_125c_libs [list ${rm_base_dirs}/${base_ff_0p88v_125c_lib}.lib ${rm_sram_dirs}/${sram_ff_0p88v_125c_lib}.lib ]
+@file(tech.tcl) 97: set ss_0p72v_m40c_libs [list ${rm_base_dirs}/${base_ss_0p72v_m40c_lib}.lib ${rm_sram_dirs}/${sram_ss_0p72v_m40c_lib}.lib ]
+set ss_0p72v_m40c_libs [list ${rm_base_dirs}/${base_ss_0p72v_m40c_lib}.lib ${rm_sram_dirs}/${sram_ss_0p72v_m40c_lib}.lib ]
+@file(tech.tcl) 98: set ss_0p72v_125c_libs [list ${rm_base_dirs}/${base_ss_0p72v_125c_lib}.lib ${rm_sram_dirs}/${sram_ss_0p72v_125c_lib}.lib ]
+set ss_0p72v_125c_libs [list ${rm_base_dirs}/${base_ss_0p72v_125c_lib}.lib ${rm_sram_dirs}/${sram_ss_0p72v_125c_lib}.lib ]
+@file(tech.tcl) 103: set constraints_sdc         "../scripts/constraints.tcl"
+set constraints_sdc         "../scripts/constraints.tcl"
+@file(tech.tcl) 104: set cts_constraints_sdc     "../scripts/constraints_cts.tcl"
+set cts_constraints_sdc     "../scripts/constraints_cts.tcl"
+@file(tech.tcl) 105: set postcts_constraints_sdc "../scripts/constraints_postcts.tcl"
+set postcts_constraints_sdc "../scripts/constraints_postcts.tcl"
+@file(tech.tcl) 108: set rm_tie_hi_lo_list [list TIEHBWP16P90 TIELBWP16P90]
+set rm_tie_hi_lo_list [list TIEHBWP16P90 TIELBWP16P90]
+@file(tech.tcl) 111: set rm_tie_cell_pin [list "Z" "ZN"]
+set rm_tie_cell_pin [list "Z" "ZN"]
+@file(tech.tcl) 113: set rm_clock_cell [list]
+set rm_clock_cell [list]
+@file(tech.tcl) 114: set rm_clock_buf_cap_cell [list ]
+set rm_clock_buf_cap_cell [list ]
+@file(tech.tcl) 115: set rm_clock_inv_cap_cell [list ]
+set rm_clock_inv_cap_cell [list ]
+@file(tech.tcl) 116: set rm_clock_icg_cell [list ]
+set rm_clock_icg_cell [list ]
+@file(tech.tcl) 117: set rm_clock_size_cell [list $rm_clock_inv_cap_cell $rm_clock_buf_cap_cell]
+set rm_clock_size_cell [list $rm_clock_inv_cap_cell $rm_clock_buf_cap_cell]
+@file(tech.tcl) 119: set lvs_exclude_cells [list FILL64BWP16P90 FILL32BWP16P90 FILL16BWP16P90 FILL8BWP16P90 FILL4BWP16P90 FILL2BWP16P90 FILL1BWP16P90]
+set lvs_exclude_cells [list FILL64BWP16P90 FILL32BWP16P90 FILL16BWP16P90 FILL8BWP16P90 FILL4BWP16P90 FILL2BWP16P90 FILL1BWP16P90]
+@file(tech.tcl) 122: set rm_logic_delay_cell [list BUFFD2BWP16P90 BUFFD4BWP16P90 BUFFD8BWP16P90 BUFFD16BWP16P90]
+set rm_logic_delay_cell [list BUFFD2BWP16P90 BUFFD4BWP16P90 BUFFD8BWP16P90 BUFFD16BWP16P90]
+@file(tech.tcl) 123: set rm_clock_delay_cell $rm_logic_delay_cell
+set rm_clock_delay_cell $rm_logic_delay_cell
+@file(tech.tcl) 126: set hold_fixing_cells [list BUFFD2BWP16P90 BUFFD4BWP16P90 BUFFD8BWP16P90 BUFFD16BWP16P90]
+set hold_fixing_cells [list BUFFD2BWP16P90 BUFFD4BWP16P90 BUFFD8BWP16P90 BUFFD16BWP16P90]
+@file(tech.tcl) 132: set rm_clock_period 1.0 ;# Target clock period in ns of the macro
+set rm_clock_period 1.0 ;# Target clock period in ns of the macro
+@file(tech.tcl) 139: set rm_load_value 0.05 ;# Capacitive load in pF placed on all outputs
+set rm_load_value 0.05 ;# Capacitive load in pF placed on all outputs
+@file(tech.tcl) 140: set rm_driving_cell BUFFD8BWP16P90 ;# The driving cell for all inputs
+set rm_driving_cell BUFFD8BWP16P90 ;# The driving cell for all inputs
+@file(tech.tcl) 141: set rm_driving_pin Z ;# The output pin of the driving cell
+set rm_driving_pin Z ;# The output pin of the driving cell
+@file(tech.tcl) 143: set rm_dont_use_list [list *BWP20* *LVT]
+set rm_dont_use_list [list *BWP20* *LVT]
+@file(tech.tcl) 145: set rm_clock_driving_cell [list CKBD1BWP20P90 CKBD2BWP20P90 CKBD4BWP20P90 CKBD8BWP20P90 CKBD12BWP20P90 CKBD16BWP20P90] ;# The driving cell for clock ports
+set rm_clock_driving_cell [list CKBD1BWP20P90 CKBD2BWP20P90 CKBD4BWP20P90 CKBD8BWP20P90 CKBD12BWP20P90 CKBD16BWP20P90] ;# The driving cell for clock ports
+@file(tech.tcl) 146: set rm_clock_driving_pin Z ;# The output pin of the clock driving cell
+set rm_clock_driving_pin Z ;# The output pin of the clock driving cell
+@file(tech.tcl) 148: set rm_setup_margin 0.050 ;# in ns. Setup margin 
+set rm_setup_margin 0.050 ;# in ns. Setup margin 
+@file(tech.tcl) 149: set rm_hold_margin 0.0 ;# in ns. Hold margin 
+set rm_hold_margin 0.0 ;# in ns. Hold margin 
+@file(tech.tcl) 150: set rm_clock_uncertainty 0.100 ;# in ns. Pre-CTS clock skew estimate 
+set rm_clock_uncertainty 0.100 ;# in ns. Pre-CTS clock skew estimate 
+@file(tech.tcl) 151: set rm_pre_cts_clock_uncertainty 0.100 ;# in ns. Pre-CTS clock skew estimate
+set rm_pre_cts_clock_uncertainty 0.100 ;# in ns. Pre-CTS clock skew estimate
+@file(tech.tcl) 152: set rm_post_cts_clock_uncertainty 0.075 ;# in ns. Post-CTS clock skew estimate 
+set rm_post_cts_clock_uncertainty 0.075 ;# in ns. Post-CTS clock skew estimate 
+@file(tech.tcl) 153: set rm_critical_range 0.1 ;# Critical range. % of the rm_clock_period 
+set rm_critical_range 0.1 ;# Critical range. % of the rm_clock_period 
+@file(tech.tcl) 154: set rm_icg_name integrated ;# Name of ICG cell
+set rm_icg_name integrated ;# Name of ICG cell
+@file(tech.tcl) 155: set rm_max_fanout 32 ;# Maximum fanout threshold 
+set rm_max_fanout 32 ;# Maximum fanout threshold 
+@file(tech.tcl) 156: set rm_cts_max_fanout 16 ;# Maximum fanout threshold 
+set rm_cts_max_fanout 16 ;# Maximum fanout threshold 
+@file(tech.tcl) 157: set rm_max_transition 0.500 ;# Maximum rise/fall signal transition time in ns 
+set rm_max_transition 0.500 ;# Maximum rise/fall signal transition time in ns 
+@file(tech.tcl) 158: set rm_max_clock_transition 0.500 ;# Maximum rise/fall clock transition time in ns 
+set rm_max_clock_transition 0.500 ;# Maximum rise/fall clock transition time in ns 
+@file(tech.tcl) 159: set rm_clock_latency 1 ;# Predicted clock insertion delay in ns 
+set rm_clock_latency 1 ;# Predicted clock insertion delay in ns 
+@file(tech.tcl) 160: set rm_icg_latency 0.070 ;# Latency in ns for integrated clock gating cell 
+set rm_icg_latency 0.070 ;# Latency in ns for integrated clock gating cell 
+@file(tech.tcl) 167: set rm_core_utilization 0.8 ;# Utilization ratio of the macro floorplan 
+set rm_core_utilization 0.8 ;# Utilization ratio of the macro floorplan 
+@file(tech.tcl) 168: set rm_aspect_ratio 1.00 ;# Height-to-width ratio of the macro floorplan 
+set rm_aspect_ratio 1.00 ;# Height-to-width ratio of the macro floorplan 
+#@ End verbose source ../scripts/tech.tcl
+@file(compile.tcl) 23: set_db information_level 9
+  Setting attribute of root '/': 'information_level' = 9
+@file(compile.tcl) 25: set_db tns_opto true
+  Setting attribute of root '/': 'tns_opto' = true
+@file(compile.tcl) 26: set_db lp_insert_clock_gating false
+  Setting attribute of root '/': 'lp_insert_clock_gating' = false
+@file(compile.tcl) 28: set_db timing_report_load_unit pf
+  Setting attribute of root '/': 'timing_report_load_unit' = pf
+@file(compile.tcl) 29: set_db timing_report_time_unit ps
+  Setting attribute of root '/': 'timing_report_time_unit' = ps
+@file(compile.tcl) 36: set link_library [concat ${ss_0p72v_m40c_libs} ${ff_0p88v_125c_libs} ]
+@file(compile.tcl) 37: set_db library ${link_library}
+
+Threads Configured:6
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'library_features' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/stdcell/N16ADFP_StdCell/CCS//N16ADFP_StdCellss0p72vm40c_ccs.lib, Line 72)
+        : Check to see if this construct is really needed for synthesis. Many liberty constructs are not actually required.
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'define' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/stdcell/N16ADFP_StdCell/CCS//N16ADFP_StdCellss0p72vm40c_ccs.lib, Line 223)
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'library_features' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib, Line 51)
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'library_features' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib, Line 52)
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'define' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib, Line 155)
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'define' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib, Line 156)
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'map_only' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib, Line 442)
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'map_only' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib, Line 1993)
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'map_only' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib, Line 3544)
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'map_only' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib, Line 5095)
+Warning : Unsupported attribute in the pin group. [LBR-510]
+        : The attribute 'bus_naming_style' defined on line 6645 is not supported for 'cell' group. It should be defined at 'library' level. (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib)
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'map_only' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib, Line 6649)
+Warning : Unsupported attribute in the pin group. [LBR-510]
+        : The attribute 'bus_naming_style' defined on line 8806 is not supported for 'cell' group. It should be defined at 'library' level. (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib)
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'map_only' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib, Line 8810)
+Warning : Unsupported attribute in the pin group. [LBR-510]
+        : The attribute 'bus_naming_style' defined on line 10967 is not supported for 'cell' group. It should be defined at 'library' level. (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib)
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'map_only' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib, Line 10971)
+Warning : Unsupported attribute in the pin group. [LBR-510]
+        : The attribute 'bus_naming_style' defined on line 13128 is not supported for 'cell' group. It should be defined at 'library' level. (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib)
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'map_only' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib, Line 13132)
+Warning : Unsupported attribute in the pin group. [LBR-510]
+        : The attribute 'bus_naming_style' defined on line 15289 is not supported for 'cell' group. It should be defined at 'library' level. (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib)
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'map_only' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib, Line 15293)
+Warning : Unsupported attribute in the pin group. [LBR-510]
+        : The attribute 'bus_naming_style' defined on line 17450 is not supported for 'cell' group. It should be defined at 'library' level. (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib)
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'map_only' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib, Line 17454)
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'library_features' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/stdcell/N16ADFP_StdCell/CCS//N16ADFP_StdCellff0p88v125c_ccs.lib, Line 72)
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'define' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/stdcell/N16ADFP_StdCell/CCS//N16ADFP_StdCellff0p88v125c_ccs.lib, Line 223)
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'library_features' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ff0p88v0p88v125c_100a.lib, Line 51)
+Info    : An unsupported construct was detected in this library. [LBR-40]
+        : Unknown Liberty attribute 'library_features' encountered. Ignoring (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ff0p88v0p88v125c_100a.lib, Line 52)
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'LBR-40'.
+Warning : Unsupported attribute in the pin group. [LBR-510]
+        : The attribute 'bus_naming_style' defined on line 6645 is not supported for 'cell' group. It should be defined at 'library' level. (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ff0p88v0p88v125c_100a.lib)
+Warning : Unsupported attribute in the pin group. [LBR-510]
+        : The attribute 'bus_naming_style' defined on line 8806 is not supported for 'cell' group. It should be defined at 'library' level. (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ff0p88v0p88v125c_100a.lib)
+Warning : Unsupported attribute in the pin group. [LBR-510]
+        : The attribute 'bus_naming_style' defined on line 10967 is not supported for 'cell' group. It should be defined at 'library' level. (File /usr/cots/ip_libraries/tsmc/N
+  Message Summary for Library all 4 libraries:
+  ********************************************
+16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ff0p88v0p88v125c_100a.lib)
+Warning : Unsupported attribute in the pin group. [LBR-510]
+        : The attribute 'bus_naming_style' defined on line 13128 is not supported for 'cell' group. It should be defined at 'library' level. (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ff0p88v0p88v125c_100a.lib)
+Warning : Unsupported attribute in the pin group. [LBR-510]
+        : The attribute 'bus_naming_style' defined on line 15289 is not supported for 'cell' group. It should be defined at 'library' level. (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ff0p88v0p88v125c_100a.lib)
+Warning : Unsupported attribute in the pin group. [LBR-510]
+        : The attribute 'bus_naming_style' defined on line 17450 is not supported for 'cell' group. It should be defined at 'library' level. (File /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ff0p88v0p88v125c_100a.lib)
+  Unsupported attribute in the pin group. [LBR-510]: 12
+  An unsupported construct was detected in this library. [LBR-40]: 32
+  ********************************************
+ 
+            Reading file '/usr/cots/ip_libraries/tsmc/N16ADFP/stdcell/N16ADFP_StdCell/CCS//N16ADFP_StdCellss0p72vm40c_ccs.lib'
+            Reading file '/usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib'
+            Reading file '/usr/cots/ip_libraries/tsmc/N16ADFP/stdcell/N16ADFP_StdCell/CCS//N16ADFP_StdCellff0p88v125c_ccs.lib'
+Warning : Libraries have inconsistent nominal operating conditions. In the Liberty library, there are attributes called nom_voltage, nom_process and nom_temperature. Genus reports the message, if the respective values of the 2 given .libs differ. [LBR-38]
+        : The libraries are 'N16ADFP_StdCellss0p72vm40c_ccs' and 'N16ADFP_StdCellff0p88v125c_ccs'.
+        : This is a common source of delay calculation confusion and should be avoided.
+            Reading file '/usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ff0p88v0p88v125c_100a.lib'
+Warning : Libraries have inconsistent nominal operating conditions. In the Liberty library, there are attributes called nom_voltage, nom_process and nom_temperature. Genus reports the message, if the respective values of the 2 given .libs differ. [LBR-38]
+        : The libraries are 'N16ADFP_StdCellss0p72vm40c_ccs' and 'N16ADFP_SRAM_ff0p88v0p88v125c'.
+Warning : Ignoring unsupported lu_table_template. [LBR-403]
+        : Ignoring lu_table_template index type (input_voltage).
+        : LBR-403 is issued when an unsupported lu_table_template is encountered by GENUS.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.720000, -40.000000) in library 'N16ADFP_StdCellss0p72vm40c_ccs.lib'.
+        : The nominal operating condition is represented, either by the nominal PVT values specified in the library source (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.720000, -40.000000) in library 'N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib'.
+Warning : Ignoring unsupported lu_table_template. [LBR-403]
+        : Ignoring lu_table_template index type (input_voltage).
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.880000, 125.000000) in library 'N16ADFP_StdCellff0p88v125c_ccs.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.880000, 125.000000) in library 'N16ADFP_SRAM_ff0p88v0p88v125c_100a.lib'.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[0]' has no function.
+        : If the remainder of this library cell's semantic checks are successful, it will be considered as a timing-model (because one of its outputs does not have a valid function.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[1]' has no function.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[2]' has no function.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[3]' has no function.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[4]' has no function.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[5]' has no function.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[6]' has no function.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[7]' has no function.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[8]' has no function.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[9]' has no function.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[10]' has no function.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[11]' has no function.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[12]' has no function.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[13]' has no function.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[14]' has no function.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[15]' has no function.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[16]' has no function.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[17]' has no function.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[18]' has no function.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'TS1N16ADFPCLLLVTA128X64M4SWSHOD/Q[19]' has no function.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'LBR-41'.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_LEFTBWP16P90' must have an output pin.
+        : Add the missing output pin(s), then reload the library. Else the library cell will be marked as timing model i.e. unusable. Timing_model means that the cell does not have any defined function. If there is no output pin, Genus will mark library cell as unusable i.e. the attribute 'usable' will be marked to 'false' on the libcell. Therefore, the cell is not used for mapping and it will not be picked up from the library for synthesis. If you query the attribute 'unusable_reason' on the libcell; result will be: 'Library cell has no output pins.'Note: The message LBR-9 is only for the logical pins and not for the power_ground pins. Genus will depend upon the output function defined in the pin group (output pin) of the cell, to use it for mapping. The pg_pin will not have any function defined.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_LEFTBWP16P90' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_LEFTBWP16P90LVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_LEFTBWP16P90LVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_LEFTBWP20P90' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_LEFTBWP20P90' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_LEFTBWP20P90LVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_LEFTBWP20P90LVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_NCORNERBWP16P90' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_NCORNERBWP16P90' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_NCORNERBWP16P90LVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_NCORNERBWP16P90LVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_NCORNERBWP20P90' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_NCORNERBWP20P90' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_NCORNERBWP20P90LVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_NCORNERBWP20P90LVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_NROW1BWP16P90' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_NROW1BWP16P90' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_NROW1BWP16P90LVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_NROW1BWP16P90LVT' must have an output pin.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'LBR-9'.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP16P90/Q' is ignored.
+        : Timing sense should never be set with 'rising_edge' or 'falling_edge' timing type.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP16P90/Q' is ignored.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP16P90/Q' is ignored.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP16P90/Q' is ignored.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP16P90LVT/Q' is ignored.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP16P90LVT/Q' is ignored.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP16P90LVT/Q' is ignored.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP16P90LVT/Q' is ignored.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP20P90/Q' is ignored.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP20P90/Q' is ignored.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP20P90/Q' is ignored.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP20P90/Q' is ignored.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP20P90LVT/Q' is ignored.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP20P90LVT/Q' is ignored.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP20P90LVT/Q' is ignored.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP20P90LVT/Q' is ignored.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP16P90/Q' is ignored.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP16P90/Q' is ignored.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP16P90/Q' is ignored.
+Info    : Ignoring specified timing sense. [LBR-170]
+        : The 'timing_sense' definition 'negative_unate' for library pin 'SDFKCNQD2BWP16P90/Q' is ignored.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'LBR-170'.
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D12BWP16P90)
+        : Before deleting duplicate libcells, their names are stored.
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D12BWP16P90 and N16ADFP_StdCellff0p88v125c_ccs/AN2D12BWP16P90).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D12BWP16P90).
+        : Library cell names must be unique.  Any duplicates will be deleted.  Only the first (as determined by the order of libraries) will be retained.
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D12BWP16P90LVT)
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D12BWP16P90LVT and N16ADFP_StdCellff0p88v125c_ccs/AN2D12BWP16P90LVT).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D12BWP16P90LVT).
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D12BWP20P90)
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D12BWP20P90 and N16ADFP_StdCellff0p88v125c_ccs/AN2D12BWP20P90).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D12BWP20P90).
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D12BWP20P90LVT)
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D12BWP20P90LVT and N16ADFP_StdCellff0p88v125c_ccs/AN2D12BWP20P90LVT).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D12BWP20P90LVT).
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D16BWP16P90)
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D16BWP16P90 and N16ADFP_StdCellff0p88v125c_ccs/AN2D16BWP16P90).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D16BWP16P90).
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D16BWP16P90LVT)
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D16BWP16P90LVT and N16ADFP_StdCellff0p88v125c_ccs/AN2D16BWP16P90LVT).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D16BWP16P90LVT).
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D16BWP20P90)
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D16BWP20P90 and N16ADFP_StdCellff0p88v125c_ccs/AN2D16BWP20P90).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D16BWP20P90).
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D16BWP20P90LVT)
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D16BWP20P90LVT and N16ADFP_StdCellff0p88v125c_ccs/AN2D16BWP20P90LVT).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D16BWP20P90LVT).
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D1BWP16P90)
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D1BWP16P90 and N16ADFP_StdCellff0p88v125c_ccs/AN2D1BWP16P90).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D1BWP16P90).
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D1BWP16P90LVT)
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D1BWP16P90LVT and N16ADFP_StdCellff0p88v125c_ccs/AN2D1BWP16P90LVT).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D1BWP16P90LVT).
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D1BWP20P90)
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D1BWP20P90 and N16ADFP_StdCellff0p88v125c_ccs/AN2D1BWP20P90).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D1BWP20P90).
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D1BWP20P90LVT)
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D1BWP20P90LVT and N16ADFP_StdCellff0p88v125c_ccs/AN2D1BWP20P90LVT).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D1BWP20P90LVT).
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D2BWP16P90)
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D2BWP16P90 and N16ADFP_StdCellff0p88v125c_ccs/AN2D2BWP16P90).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D2BWP16P90).
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D2BWP16P90LVT)
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D2BWP16P90LVT and N16ADFP_StdCellff0p88v125c_ccs/AN2D2BWP16P90LVT).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D2BWP16P90LVT).
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D2BWP20P90)
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D2BWP20P90 and N16ADFP_StdCellff0p88v125c_ccs/AN2D2BWP20P90).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D2BWP20P90).
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D2BWP20P90LVT)
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D2BWP20P90LVT and N16ADFP_StdCellff0p88v125c_ccs/AN2D2BWP20P90LVT).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D2BWP20P90LVT).
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D4BWP16P90)
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D4BWP16P90 and N16ADFP_StdCellff0p88v125c_ccs/AN2D4BWP16P90).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D4BWP16P90).
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D4BWP16P90LVT)
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D4BWP16P90LVT and N16ADFP_StdCellff0p88v125c_ccs/AN2D4BWP16P90LVT).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D4BWP16P90LVT).
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D4BWP20P90)
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D4BWP20P90 and N16ADFP_StdCellff0p88v125c_ccs/AN2D4BWP20P90).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D4BWP20P90).
+Info    : Stored shadowed libcells. [LBR-785]
+        : Library-cell name (N16ADFP_StdCellff0p88v125c_ccs/AN2D4BWP20P90LVT)
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (N16ADFP_StdCellss0p72vm40c_ccs/AN2D4BWP20P90LVT and N16ADFP_StdCellff0p88v125c_ccs/AN2D4BWP20P90LVT).  Deleting (N16ADFP_StdCellff0p88v125c_ccs/AN2D4BWP20P90LVT).
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'LBR-785'.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'LBR-22'.
+  Setting attribute of root '/': 'library' = /usr/cots/ip_libraries/tsmc/N16ADFP/stdcell/N16ADFP_StdCell/CCS//N16ADFP_StdCellss0p72vm40c_ccs.lib /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib /usr/cots/ip_libraries/tsmc/N16ADFP/stdcell/N16ADFP_StdCell/CCS//N16ADFP_StdCellff0p88v125c_ccs.lib /usr/cots/ip_libraries/tsmc/N16ADFP/sram/N16ADFP_SRAM//NLDM//N16ADFP_SRAM_ff0p88v0p88v125c_100a.lib
+@file(compile.tcl) 44: foreach dont_use ${rm_dont_use_list} {
+  set_dont_use [get_lib_cells */${dont_use} ]
+}
+@file(compile.tcl) 49: source -verbose ../scripts/init_genus.tcl
+Sourcing '../scripts/init_genus.tcl' (Tue Feb 17 15:59:47 EST 2026)...
+#@ Begin verbose source ../scripts/init_genus.tcl
+@file(init_genus.tcl) 5: read_mmmc ../scripts/viewDefinitions.tcl
+  Setting attribute of root '/': 'is_read_mmmc_flow' = true
+Sourcing '../scripts/viewDefinitions.tcl' (Tue Feb 17 15:59:47 EST 2026)...
+#@ Begin verbose source ../scripts/viewDefinitions.tcl
+@file(viewDefinitions.tcl) 3: create_library_set -name tt_0p8v_25c_lib_set \
+   -timing $tt_0p8v_25c_libs 
+@file(viewDefinitions.tcl) 6: create_library_set -name ff_0p88v_125c_lib_set \
+  -timing $ff_0p88v_125c_libs 
+@file(viewDefinitions.tcl) 9: create_library_set -name ss_0p72v_m40c_lib_set \
+   -timing $ss_0p72v_m40c_libs 
+@file(viewDefinitions.tcl) 13: if {${rm_task} == "synthesis"} {
+    create_opcond -name tc_corner -process 1.0 -temperature 25 -voltage 0.8
+    create_opcond -name bc_corner -process 1.0 -temperature 125 -voltage 0.88
+    create_opcond -name wc_corner -process 1.0 -temperature -40 -voltage 0.72
+   
+    create_timing_condition -name typ_time_cond \
+        -opcond tc_corner \
+        -library_sets tt_0p8v_25c_lib_set 
+    
+    create_timing_condition -name slow_time_cond \
+        -opcond wc_corner \
+        -library_sets ss_0p72v_m40c_lib_set 
+    
+    create_timing_condition -name fast_time_cond \
+       -opcond bc_corner \
+       -library_sets ff_0p88v_125c_lib_set 
+
+
+    # Create Base delay corners                   
+    create_delay_corner -name tt_0p8v_25c_delay_corner \
+        -timing_condition typ_time_cond \
+        -si_enabled true
+    
+    create_delay_corner -name ff_0p88v_125c_delay_corner \
+       -timing_condition fast_time_cond \
+       -si_enabled true
+    
+    create_delay_corner -name ss_0p72v_m40c_delay_corner \
+        -timing_condition slow_time_cond \
+        -si_enabled true
+
+} else {
+    # Create RC Corners
+   #  There is no typical RC corner file provided for this technology
+    create_rc_corner -name rc_typ_25c \
+       -qx_tech_file  ${rm_qrc_min_file} \
+       -T 25
+    
+   create_rc_corner -name rc_best_125c \
+       -qx_tech_file  ${rm_qrc_min_file} \
+       -T 125
+    
+    create_rc_corner -name rc_worst_m40c \
+       -qx_tech_file  ${rm_qrc_max_file} \
+       -T -40
+   
+    # Create Base delay corners
+    create_delay_corner -name tt_0p8v_25c_delay_corner \
+       -library_set tt_0p8v_25c_lib_set \
+       -rc_corner rc_typ_25c \
+       -si_enabled true
+    
+    create_delay_corner -name ff_0p88v_125c_delay_corner \
+      -library_set ff_0p88v_125c_lib_set \
+      -rc_corner rc_best_125c \
+      -si_enabled true
+    
+    create_delay_corner -name ss_0p72v_m40c_delay_corner \
+       -library_set ss_0p72v_m40c_lib_set \
+       -rc_corner rc_worst_m40c \
+       -si_enabled true
+}    
+@file(viewDefinitions.tcl) 77: create_constraint_mode -name tt0p8v25c_mode \
+                       -sdc_files $constraints_sdc
+            Reading file '/h/rkim12/EE166/Lab2/work/../scripts/constraints.tcl'
+@file(viewDefinitions.tcl) 80: create_constraint_mode -name ss0p72vm40c_mode \
+                       -sdc_files $constraints_sdc
+            Reading file '/h/rkim12/EE166/Lab2/work/../scripts/constraints.tcl'
+@file(viewDefinitions.tcl) 83: create_constraint_mode -name ff0p88v125c_mode \
+                       -sdc_files $constraints_sdc
+            Reading file '/h/rkim12/EE166/Lab2/work/../scripts/constraints.tcl'
+@file(viewDefinitions.tcl) 87: create_analysis_view -name typical -constraint_mode tt0p8v25c_mode -delay_corner tt_0p8v_25c_delay_corner
+@file(viewDefinitions.tcl) 88: create_analysis_view -name normBC -constraint_mode ff0p88v125c_mode -delay_corner ff_0p88v_125c_delay_corner
+@file(viewDefinitions.tcl) 89: create_analysis_view -name normWC -constraint_mode ss0p72vm40c_mode -delay_corner ss_0p72v_m40c_delay_corner
+@file(viewDefinitions.tcl) 92: set_analysis_view -setup [list normWC] \
+                  -hold [list normBC] 
+#@ End verbose source ../scripts/viewDefinitions.tcl
+@file(init_genus.tcl) 6: read_physical -lef $rm_lef_reflib
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA01_square' has no resistance value.
+        : If this is the expected behavior, this message can be ignored.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA12_square' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA12_1cut_E' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA12_1cut' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA12_1cut_HH' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA12_1cut_VV' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA12_1cut_HH_E' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA12_1cut_HH_W' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA12_1cut_VV_N' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA12_1cut_VV_S' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA12_1cut_AS' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA12_1cut_W1A' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA12_1cut_W1A_H' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA12_1cut_W1A_V' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA23_square' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA23_1cut_N' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA23_1cut' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA23_1stack' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA23_1stack_N' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'VIA23_1stack_NE' has no resistance value.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'PHYS-129'.
+Warning : Site already defined before, duplicated site will be ignored. [PHYS-106]
+        : Site 'core' read already, this site in file '/usr/cots/ip_libraries/tsmc/N16ADFP/stdcell/N16ADFP_StdCell/LEF/lef/N16ADFP_StdCell.lef' is ignored.
+Warning : Site already defined before, duplicated site will be ignored. [PHYS-106]
+        : Site 'bcoreExt' read already, this site in file '/usr/cots/ip_libraries/tsmc/N16ADFP/stdcell/N16ADFP_StdCell/LEF/lef/N16ADFP_StdCell.lef' is ignored.
+Warning : Site already defined before, duplicated site will be ignored. [PHYS-106]
+        : Site 'gacore' read already, this site in file '/usr/cots/ip_libraries/tsmc/N16ADFP/stdcell/N16ADFP_StdCell/LEF/lef/N16ADFP_StdCell.lef' is ignored.
+
+  According to lef_library, there are total 12 routing layers [ V(6) / H(6) ]
+
+Warning : Missing wire parameter. [PHYS-15]
+        : 'EDGECAPACITANCE' parameter is missing for layer 'M1' [line 245 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+        : Check the wire parameter in LEF technology files.
+Warning : Missing wire parameter. [PHYS-15]
+        : 'EDGECAPACITANCE' parameter is missing for layer 'M2' [line 358 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+Warning : Missing wire parameter. [PHYS-15]
+        : 'EDGECAPACITANCE' parameter is missing for layer 'M3' [line 480 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+Warning : Missing wire parameter. [PHYS-15]
+        : 'EDGECAPACITANCE' parameter is missing for layer 'M4' [line 668 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+Warning : Missing wire parameter. [PHYS-15]
+        : 'EDGECAPACITANCE' parameter is missing for layer 'M5' [line 864 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+Warning : Missing wire parameter. [PHYS-15]
+        : 'EDGECAPACITANCE' parameter is missing for layer 'M6' [line 1060 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+Warning : Missing wire parameter. [PHYS-15]
+        : 'EDGECAPACITANCE' parameter is missing for layer 'M7' [line 1264 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+Warning : Missing wire parameter. [PHYS-15]
+        : 'EDGECAPACITANCE' parameter is missing for layer 'M8' [line 1357 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+Warning : Missing wire parameter. [PHYS-15]
+        : 'EDGECAPACITANCE' parameter is missing for layer 'M9' [line 1452 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+Warning : Missing wire parameter. [PHYS-15]
+        : 'EDGECAPACITANCE' parameter is missing for layer 'M10' [line 1513 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+Warning : Missing wire parameter. [PHYS-15]
+        : 'EDGECAPACITANCE' parameter is missing for layer 'M11' [line 1569 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+Warning : Missing wire parameter. [PHYS-15]
+        : 'EDGECAPACITANCE' parameter is missing for layer 'AP' [line 1602 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+Warning : Missing wire parameter. [PHYS-15]
+        : 'CPERSQDIST' parameter is missing for layer 'M1' [line 245 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+Warning : Missing wire parameter. [PHYS-15]
+        : 'CPERSQDIST' parameter is missing for layer 'M2' [line 358 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+Warning : Missing wire parameter. [PHYS-15]
+        : 'CPERSQDIST' parameter is missing for layer 'M3' [line 480 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+Warning : Missing wire parameter. [PHYS-15]
+        : 'CPERSQDIST' parameter is missing for layer 'M4' [line 668 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+Warning : Missing wire parameter. [PHYS-15]
+        : 'CPERSQDIST' parameter is missing for layer 'M5' [line 864 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+Warning : Missing wire parameter. [PHYS-15]
+        : 'CPERSQDIST' parameter is missing for layer 'M6' [line 1060 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+Warning : Missing wire parameter. [PHYS-15]
+        : 'CPERSQDIST' parameter is missing for layer 'M7' [line 1264 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+Warning : Missing wire parameter. [PHYS-15]
+        : 'CPERSQDIST' parameter is missing for layer 'M8' [line 1357 in file /usr/cots/pdk/N16ADFP/APR/N16ADFP_APR_Innovus/N16ADFP_APR_Innovus_11M.10a.tlef]
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'PHYS-15'.
+Warning : The variant range of wire parameters is too large. An example of wire parameters are, a WIDTH for layer, PITCH for layer, MINSPACING for layers, etc. [PHYS-12]
+        : The variant range (0.032, 1.8) of 'WIDTH' for layers 'M1' and 'AP' is too large.
+        : Check the consistency of the parameters, and see if you can ignore this message or you're using different LEF file with wrong parameters.
+Warning : The variant range of wire parameters is too large. An example of wire parameters are, a WIDTH for layer, PITCH for layer, MINSPACING for layers, etc. [PHYS-12]
+        : The variant range (0.064, 3.6) of 'PITCH' for layers 'M2' and 'AP' is too large.
+Warning : The variant range of wire parameters is too large. An example of wire parameters are, a WIDTH for layer, PITCH for layer, MINSPACING for layers, etc. [PHYS-12]
+        : The variant range (0.03, 1.8) of 'MINSPACING' for layers 'M1' and 'AP' is too large.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D1BWP16P90'.
+        : Setting the 'timing_sense' to non_unate.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D1BWP16P90LVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D1BWP20P90'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D1BWP20P90LVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D2BWP16P90'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D2BWP16P90LVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D2BWP20P90'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D2BWP20P90LVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D4BWP16P90'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D4BWP16P90LVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D4BWP20P90'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D4BWP20P90LVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D8BWP16P90'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D8BWP16P90LVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D8BWP20P90'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'S' and 'Z' in libcell 'CKMUX2D8BWP20P90LVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'CI' and 'S' in libcell 'FA1D1BWP16P90'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'B' and 'S' in libcell 'FA1D1BWP16P90'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'A' and 'S' in libcell 'FA1D1BWP16P90'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'CI' and 'S' in libcell 'FA1D1BWP16P90LVT'.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'LBR-162'.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'max_clock_tree_path' between libpins 'CLK' and 'CLK' on libcell 'TS1N16ADFPCLLLVTA128X64M4SWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+        : Refer to 'Supported Liberty timing_type Values' in the 'Timing Analysis Guide' for more information.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_clock_tree_path' between libpins 'CLK' and 'CLK' on libcell 'TS1N16ADFPCLLLVTA128X64M4SWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'max_clock_tree_path' between libpins 'CLK' and 'CLK' on libcell 'TS1N16ADFPCLLLVTA16X88M2SWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_clock_tree_path' between libpins 'CLK' and 'CLK' on libcell 'TS1N16ADFPCLLLVTA16X88M2SWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'max_clock_tree_path' between libpins 'CLK' and 'CLK' on libcell 'TS1N16ADFPCLLLVTA16X96M2SWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_clock_tree_path' between libpins 'CLK' and 'CLK' on libcell 'TS1N16ADFPCLLLVTA16X96M2SWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'max_clock_tree_path' between libpins 'CLK' and 'CLK' on libcell 'TS1N16ADFPCLLLVTA512X45M4SWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_clock_tree_path' between libpins 'CLK' and 'CLK' on libcell 'TS1N16ADFPCLLLVTA512X45M4SWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'max_clock_tree_path' between libpins 'CLKW' and 'CLKW' on libcell 'TS6N16ADFPCLLLVTA128X32M4FWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_clock_tree_path' between libpins 'CLKW' and 'CLKW' on libcell 'TS6N16ADFPCLLLVTA128X32M4FWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'max_clock_tree_path' between libpins 'CLKR' and 'CLKR' on libcell 'TS6N16ADFPCLLLVTA128X32M4FWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_clock_tree_path' between libpins 'CLKR' and 'CLKR' on libcell 'TS6N16ADFPCLLLVTA128X32M4FWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'max_clock_tree_path' between libpins 'CLKW' and 'CLKW' on libcell 'TS6N16ADFPCLLLVTA128X64M4FWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_clock_tree_path' between libpins 'CLKW' and 'CLKW' on libcell 'TS6N16ADFPCLLLVTA128X64M4FWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'max_clock_tree_path' between libpins 'CLKR' and 'CLKR' on libcell 'TS6N16ADFPCLLLVTA128X64M4FWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_clock_tree_path' between libpins 'CLKR' and 'CLKR' on libcell 'TS6N16ADFPCLLLVTA128X64M4FWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'max_clock_tree_path' between libpins 'CLKW' and 'CLKW' on libcell 'TS6N16ADFPCLLLVTA16X120M2FWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_clock_tree_path' between libpins 'CLKW' and 'CLKW' on libcell 'TS6N16ADFPCLLLVTA16X120M2FWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'max_clock_tree_path' between libpins 'CLKR' and 'CLKR' on libcell 'TS6N16ADFPCLLLVTA16X120M2FWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+Info    : Detected an unsupported timing arc type. [LBR-72]
+        : Timing arc 'min_clock_tree_path' between libpins 'CLKR' and 'CLKR' on libcell 'TS6N16ADFPCLLLVTA16X120M2FWSHOD' is ignored. Hold timing analysis and optimization are not supported.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'LBR-72'.
+  Libraries have 271 usable logic and 24 usable sequential lib-cells.
+Warning : Message truncated because it exceeds the maximum length of 4096 characters. [MESG-6]
+        : Info portion of message 'LBR-415' truncated to length 4096 from 21628
+        : By default messages are limited to 4096 characters. All characters after the 4096 character limit are truncated. To remove this limit, set the message attribute 'truncate' to 'false'. However, this may dramatically increase the size of the log file.
+Info    : Unusable library cells found at the time of loading a library.  [LBR-415]
+        : Library: 'N16ADFP_StdCellss0p72vm40c_ccs.lib', Total cells: 1480, Unusable cells: 1178.
+	List of unusable cells: 'AN2D12BWP16P90LVT AN2D12BWP20P90 AN2D12BWP20P90LVT AN2D16BWP16P90LVT AN2D16BWP20P90 AN2D16BWP20P90LVT AN2D1BWP16P90LVT AN2D1BWP20P90 AN2D1BWP20P90LVT AN2D2BWP16P90LVT AN2D2BWP20P90 AN2D2BWP20P90LVT AN2D4BWP16P90LVT AN2D4BWP20P90 AN2D4BWP20P90LVT AN2D8BWP16P90LVT AN2D8BWP20P90 AN2D8BWP20P90LVT AN3D1BWP16P90LVT AN3D1BWP20P90 AN3D1BWP20P90LVT AN3D2BWP16P90LVT AN3D2BWP20P90 AN3D2BWP20P90LVT AN3D4BWP16P90LVT AN3D4BWP20P90 AN3D4BWP20P90LVT AN3D8BWP16P90LVT AN3D8BWP20P90 AN3D8BWP20P90LVT AN4D1BWP16P90LVT AN4D1BWP20P90 AN4D1BWP20P90LVT AN4D2BWP16P90LVT AN4D2BWP20P90 AN4D2BWP20P90LVT AN4D4BWP16P90LVT AN4D4BWP20P90 AN4D4BWP20P90LVT AN4D8BWP16P90LVT AN4D8BWP20P90 AN4D8BWP20P90LVT AO21D1BWP16P90LVT AO21D1BWP20P90 AO21D1BWP20P90LVT AO21D2BWP16P90LVT AO21D2BWP20P90 AO21D2BWP20P90LVT AO21D4BWP16P90LVT AO21D4BWP20P90 AO21D4BWP20P90LVT AO22D1BWP16P90LVT AO22D1BWP20P90 AO22D1BWP20P90LVT AO22D2BWP16P90LVT AO22D2BWP20P90 AO22D2BWP20P90LVT AO22D4BWP16P90LVT AO22D4BWP20P90 AO22D4BWP20P90LVT AOAI211D1BWP16P90LVT AOAI211D1BWP20P90 AOAI211D1BWP20P90LVT AOAI211D2BWP16P90LVT AOAI211D2BWP20P90 AOAI211D2BWP20P90LVT AOAI211D4BWP16P90LVT AOAI211D4BWP20P90 AOAI211D4BWP20P90LVT AOI211D1BWP16P90LVT AOI211D1BWP20P90 AOI211D1BWP20P90LVT AOI211D2BWP16P90LVT AOI211D2BWP20P90 AOI211D2BWP20P90LVT AOI211D4BWP16P90LVT AOI211D4BWP20P90 AOI211D4BWP20P90LVT AOI211D8BWP16P90LVT AOI211D8BWP20P90 AOI211D8BWP20P90LVT AOI21D1BWP16P90LVT AOI21D1BWP20P90 AOI21D1BWP20P90LVT AOI21D2BWP16P90LVT AOI21D2BWP20P90 AOI21D2BWP20P90LVT AOI21D4BWP16P90LVT AOI21D4BWP20P90 AOI21D4BWP20P90LVT AOI21D8BWP16P90LVT AOI21D8BWP20P90 AOI21D8BWP20P90LVT AOI221D1BWP16P90LVT AOI221D1BWP20P90 AOI221D1BWP20P90LVT AOI221D2BWP16P90LVT AOI221D2BWP20P90 AOI221D2BWP20P90LVT AOI221D4BWP16P90LVT AOI221D4BWP20P90 AOI221D4BWP20P90LVT AOI222D1BWP16P90LVT AOI222D1BWP20P90 AOI222D1BWP20P90LVT AOI222D2BWP16P90LVT AOI222D2BWP20P90 AOI222D2BWP20P90LVT AOI222D4BWP16P90LVT AOI222D4BWP20P90 AOI222D4BWP20P90LVT AOI22D1BWP16P90LVT AOI22D1BWP20P90 AOI22D1BWP20P90LVT AOI22D2BWP16P90LVT AOI22D2BWP20P90 AOI22D2BWP20P90LVT AOI22D4BWP16P90LVT AOI22D4BWP20P90 AOI22D4BWP20P90LVT AOI22D8BWP16P90LVT AOI22D8BWP20P90 AOI22D8BWP20P90LVT AOI31D1BWP16P90LVT AOI31D1BWP20P90 AOI31D1BWP20P90LVT AOI31D2BWP16P90LVT AOI31D2BWP20P90 AOI31D2BWP20P90LVT AOI31D4BWP16P90LVT AOI31D4BWP20P90 AOI31D4BWP20P90LVT AOI32D1BWP16P90LVT AOI32D1BWP20P90 AOI32D1BWP20P90LVT AOI32D2BWP16P90LVT AOI32D2BWP20P90 AOI32D2BWP20P90LVT AOI32D4BWP16P90LVT AOI32D4BWP20P90 AOI32D4BWP20P90LVT AOI33D1BWP16P90LVT AOI33D1BWP20P90 AOI33D1BWP20P90LVT AOI33D2BWP16P90LVT AOI33D2BWP20P90 AOI33D2BWP20P90LVT AOI33D4BWP16P90LVT AOI33D4BWP20P90 AOI33D4BWP20P90LVT BOUNDARY_LEFTBWP16P90 BOUNDARY_LEFTBWP16P90LVT BOUNDARY_LEFTBWP20P90 BOUNDARY_LEFTBWP20P90LVT BOUNDARY_NCORNERBWP16P90 BOUNDARY_NCORNERBWP16P90LVT BOUNDARY_NCORNERBWP20P90 BOUNDARY_NCORNERBWP20P90LVT BOUNDARY_NROW1BWP16P90 BOUNDARY_NROW1BWP16P90LVT BOUNDARY_NROW1BWP20P90 BOUNDARY_NROW1BWP20P90LVT BOUNDARY_NROW2BWP16P90 BOUNDARY_NROW2BWP16P90LVT BOUNDARY_NROW2BWP20P90 BOUNDARY_NROW2BWP20P90LVT BOUNDARY_NROW3BWP16P90 BOUNDARY_NROW3BWP16P90LVT BOUNDARY_NROW3BWP20P90 BOUNDARY_NROW3BWP20P90LVT BOUNDARY_NROW4BWP16P90 BOUNDARY_NROW4BWP16P90LVT BOUNDARY_NROW4BWP20P90 BOUNDARY_NROW4BWP20P90LVT BOUNDARY_NTAPBWP16P90 BOUNDARY_NTAPBWP16P90LVT BOUNDARY_NTAPBWP16P90LVT_VPP_VBB BOUNDARY_NTAPBWP16P90LVT_VPP_VSS BOUNDARY_NTAPBWP16P90_VPP_VBB BOUNDARY_NTAPBWP16P90_VPP_VSS BOUNDARY_NTAPBWP20P90 BOUNDARY_NTAPBWP20P90LVT BOUNDARY_NTAPBWP20P90LVT_VPP_VBB BOUNDARY_NTAPBWP20P90LVT_VPP_VSS BOUNDARY_NTAPBWP20P90_VPP_VBB BOUNDARY_NTAPBWP20P90_VPP_VSS BOUNDARY_PCORNERBWP16P90 BOUNDARY_PCORNERBWP16P90LVT BOUNDARY_PCORNERBWP20P90 BOUNDARY_PCORNERBWP20P90LVT BOUNDARY_PROW1BWP16P90 BOUNDARY_PROW1BWP16P90LVT BOUNDARY_PROW1BWP20P90 BOUNDARY_PROW1BWP20P90LVT BOUNDARY_PROW2BWP16P90 BOUNDARY_PROW2BWP16P90LVT BOUNDARY_PROW2BWP20P90 BOUNDARY_PROW2BWP20P90LVT BOUNDARY_PROW3BWP16P90 BOUNDARY_PROW3BWP16P90LVT BOUNDARY_PROW3BWP20P90 BOUNDARY_PROW3BWP
+        : For  more  information, refer to 'Cells Identified as Unusable' in the 'User Guide'. To know the reason why a cell is considered as unusable, check 'unusable_reason' libcell attribute.
+Info    : Unusable library cells found at the time of loading a library.  [LBR-415]
+        : Library: 'N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib', Total cells: 10, Unusable cells: 10.
+	List of unusable cells: 'TS1N16ADFPCLLLVTA128X64M4SWSHOD TS1N16ADFPCLLLVTA16X88M2SWSHOD TS1N16ADFPCLLLVTA16X96M2SWSHOD TS1N16ADFPCLLLVTA512X45M4SWSHOD TS6N16ADFPCLLLVTA128X32M4FWSHOD TS6N16ADFPCLLLVTA128X64M4FWSHOD TS6N16ADFPCLLLVTA16X120M2FWSHOD TS6N16ADFPCLLLVTA16X32M2FWSHOD TS6N16ADFPCLLLVTA16X72M2FWSHOD TS6N16ADFPCLLLVTA32X32M2FWSHOD .'
+@file(init_genus.tcl) 8: read_hdl -f ../scripts/rtl_src/macro.vc -language sv
+            Reading Verilog file '../rtl/FIR_63TAP.sv'
+            Reading Verilog file '/ee/166/CHIPKIT/ip/rtl_inc/RTL.svh'
+@file(init_genus.tcl) 9: elaborate ${rm_core_top}
+Warning : Message truncated because it exceeds the maximum length of 4096 characters. [MESG-6]
+        : Info portion of message 'LBR-415' truncated to length 4096 from 21628
+Info    : Unusable library cells found at the time of loading a library.  [LBR-415]
+        : Library: 'N16ADFP_StdCellss0p72vm40c_ccs.lib', Total cells: 1480, Unusable cells: 1178.
+	List of unusable cells: 'AN2D12BWP16P90LVT AN2D12BWP20P90 AN2D12BWP20P90LVT AN2D16BWP16P90LVT AN2D16BWP20P90 AN2D16BWP20P90LVT AN2D1BWP16P90LVT AN2D1BWP20P90 AN2D1BWP20P90LVT AN2D2BWP16P90LVT AN2D2BWP20P90 AN2D2BWP20P90LVT AN2D4BWP16P90LVT AN2D4BWP20P90 AN2D4BWP20P90LVT AN2D8BWP16P90LVT AN2D8BWP20P90 AN2D8BWP20P90LVT AN3D1BWP16P90LVT AN3D1BWP20P90 AN3D1BWP20P90LVT AN3D2BWP16P90LVT AN3D2BWP20P90 AN3D2BWP20P90LVT AN3D4BWP16P90LVT AN3D4BWP20P90 AN3D4BWP20P90LVT AN3D8BWP16P90LVT AN3D8BWP20P90 AN3D8BWP20P90LVT AN4D1BWP16P90LVT AN4D1BWP20P90 AN4D1BWP20P90LVT AN4D2BWP16P90LVT AN4D2BWP20P90 AN4D2BWP20P90LVT AN4D4BWP16P90LVT AN4D4BWP20P90 AN4D4BWP20P90LVT AN4D8BWP16P90LVT AN4D8BWP20P90 AN4D8BWP20P90LVT AO21D1BWP16P90LVT AO21D1BWP20P90 AO21D1BWP20P90LVT AO21D2BWP16P90LVT AO21D2BWP20P90 AO21D2BWP20P90LVT AO21D4BWP16P90LVT AO21D4BWP20P90 AO21D4BWP20P90LVT AO22D1BWP16P90LVT AO22D1BWP20P90 AO22D1BWP20P90LVT AO22D2BWP16P90LVT AO22D2BWP20P90 AO22D2BWP20P90LVT AO22D4BWP16P90LVT AO22D4BWP20P90 AO22D4BWP20P90LVT AOAI211D1BWP16P90LVT AOAI211D1BWP20P90 AOAI211D1BWP20P90LVT AOAI211D2BWP16P90LVT AOAI211D2BWP20P90 AOAI211D2BWP20P90LVT AOAI211D4BWP16P90LVT AOAI211D4BWP20P90 AOAI211D4BWP20P90LVT AOI211D1BWP16P90LVT AOI211D1BWP20P90 AOI211D1BWP20P90LVT AOI211D2BWP16P90LVT AOI211D2BWP20P90 AOI211D2BWP20P90LVT AOI211D4BWP16P90LVT AOI211D4BWP20P90 AOI211D4BWP20P90LVT AOI211D8BWP16P90LVT AOI211D8BWP20P90 AOI211D8BWP20P90LVT AOI21D1BWP16P90LVT AOI21D1BWP20P90 AOI21D1BWP20P90LVT AOI21D2BWP16P90LVT AOI21D2BWP20P90 AOI21D2BWP20P90LVT AOI21D4BWP16P90LVT AOI21D4BWP20P90 AOI21D4BWP20P90LVT AOI21D8BWP16P90LVT AOI21D8BWP20P90 AOI21D8BWP20P90LVT AOI221D1BWP16P90LVT AOI221D1BWP20P90 AOI221D1BWP20P90LVT AOI221D2BWP16P90LVT AOI221D2BWP20P90 AOI221D2BWP20P90LVT AOI221D4BWP16P90LVT AOI221D4BWP20P90 AOI221D4BWP20P90LVT AOI222D1BWP16P90LVT AOI222D1BWP20P90 AOI222D1BWP20P90LVT AOI222D2BWP16P90LVT AOI222D2BWP20P90 AOI222D2BWP20P90LVT AOI222D4BWP16P90LVT AOI222D4BWP20P90 AOI222D4BWP20P90LVT AOI22D1BWP16P90LVT AOI22D1BWP20P90 AOI22D1BWP20P90LVT AOI22D2BWP16P90LVT AOI22D2BWP20P90 AOI22D2BWP20P90LVT AOI22D4BWP16P90LVT AOI22D4BWP20P90 AOI22D4BWP20P90LVT AOI22D8BWP16P90LVT AOI22D8BWP20P90 AOI22D8BWP20P90LVT AOI31D1BWP16P90LVT AOI31D1BWP20P90 AOI31D1BWP20P90LVT AOI31D2BWP16P90LVT AOI31D2BWP20P90 AOI31D2BWP20P90LVT AOI31D4BWP16P90LVT AOI31D4BWP20P90 AOI31D4BWP20P90LVT AOI32D1BWP16P90LVT AOI32D1BWP20P90 AOI32D1BWP20P90LVT AOI32D2BWP16P90LVT AOI32D2BWP20P90 AOI32D2BWP20P90LVT AOI32D4BWP16P90LVT AOI32D4BWP20P90 AOI32D4BWP20P90LVT AOI33D1BWP16P90LVT AOI33D1BWP20P90 AOI33D1BWP20P90LVT AOI33D2BWP16P90LVT AOI33D2BWP20P90 AOI33D2BWP20P90LVT AOI33D4BWP16P90LVT AOI33D4BWP20P90 AOI33D4BWP20P90LVT BOUNDARY_LEFTBWP16P90 BOUNDARY_LEFTBWP16P90LVT BOUNDARY_LEFTBWP20P90 BOUNDARY_LEFTBWP20P90LVT BOUNDARY_NCORNERBWP16P90 BOUNDARY_NCORNERBWP16P90LVT BOUNDARY_NCORNERBWP20P90 BOUNDARY_NCORNERBWP20P90LVT BOUNDARY_NROW1BWP16P90 BOUNDARY_NROW1BWP16P90LVT BOUNDARY_NROW1BWP20P90 BOUNDARY_NROW1BWP20P90LVT BOUNDARY_NROW2BWP16P90 BOUNDARY_NROW2BWP16P90LVT BOUNDARY_NROW2BWP20P90 BOUNDARY_NROW2BWP20P90LVT BOUNDARY_NROW3BWP16P90 BOUNDARY_NROW3BWP16P90LVT BOUNDARY_NROW3BWP20P90 BOUNDARY_NROW3BWP20P90LVT BOUNDARY_NROW4BWP16P90 BOUNDARY_NROW4BWP16P90LVT BOUNDARY_NROW4BWP20P90 BOUNDARY_NROW4BWP20P90LVT BOUNDARY_NTAPBWP16P90 BOUNDARY_NTAPBWP16P90LVT BOUNDARY_NTAPBWP16P90LVT_VPP_VBB BOUNDARY_NTAPBWP16P90LVT_VPP_VSS BOUNDARY_NTAPBWP16P90_VPP_VBB BOUNDARY_NTAPBWP16P90_VPP_VSS BOUNDARY_NTAPBWP20P90 BOUNDARY_NTAPBWP20P90LVT BOUNDARY_NTAPBWP20P90LVT_VPP_VBB BOUNDARY_NTAPBWP20P90LVT_VPP_VSS BOUNDARY_NTAPBWP20P90_VPP_VBB BOUNDARY_NTAPBWP20P90_VPP_VSS BOUNDARY_PCORNERBWP16P90 BOUNDARY_PCORNERBWP16P90LVT BOUNDARY_PCORNERBWP20P90 BOUNDARY_PCORNERBWP20P90LVT BOUNDARY_PROW1BWP16P90 BOUNDARY_PROW1BWP16P90LVT BOUNDARY_PROW1BWP20P90 BOUNDARY_PROW1BWP20P90LVT BOUNDARY_PROW2BWP16P90 BOUNDARY_PROW2BWP16P90LVT BOUNDARY_PROW2BWP20P90 BOUNDARY_PROW2BWP20P90LVT BOUNDARY_PROW3BWP16P90 BOUNDARY_PROW3BWP16P90LVT BOUNDARY_PROW3BWP20P90 BOUNDARY_PROW3BWP
+Info    : Unusable library cells found at the time of loading a library.  [LBR-415]
+        : Library: 'N16ADFP_SRAM_ss0p72v0p72vm40c_100a.lib', Total cells: 10, Unusable cells: 10.
+	List of unusable cells: 'TS1N16ADFPCLLLVTA128X64M4SWSHOD TS1N16ADFPCLLLVTA16X88M2SWSHOD TS1N16ADFPCLLLVTA16X96M2SWSHOD TS1N16ADFPCLLLVTA512X45M4SWSHOD TS6N16ADFPCLLLVTA128X32M4FWSHOD TS6N16ADFPCLLLVTA128X64M4FWSHOD TS6N16ADFPCLLLVTA16X120M2FWSHOD TS6N16ADFPCLLLVTA16X32M2FWSHOD TS6N16ADFPCLLLVTA16X72M2FWSHOD TS6N16ADFPCLLLVTA32X32M2FWSHOD .'
+Error   : Could not find an HDL design. [CDFG-210] [elaborate]
+        : The design is 'FIR_63TAP'.
+        : This error may happen if you read a set of files, and you try to elaborate a design which description is not part of the files read. To fix this, check the name of the design you want to elaborate, or check if you have read all the expected RTL files.
+UM:   flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
+UM:*                                                                   elaborate
+#@ End verbose source ../scripts/init_genus.tcl
+#@ End verbose source /h/rkim12/EE166/Lab2/scripts/compile.tcl
+1
+Encountered problems processing file: /h/rkim12/EE166/Lab2/scripts/compile.tcl
+WARNING: This version of the tool is 945 days old.
+
+Another Ctrl-C within 1 second will terminate the tool.
+CURRENT RESOURCES: RT {elapsed: 47s, ST: 65s, FG: 65s, CPU: 0.2%}, MEM {curr: 1.5G, peak: 1.8G, phys curr: 0.8G, phys peak: 1.2G}, SYS {load: 0.2, cpu: 6, total: 15.4G, free: 9.3G}

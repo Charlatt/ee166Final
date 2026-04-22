@@ -1,0 +1,25 @@
+23:39:36:3936 [important] [FelixStartLevel] WARN  - InfoSource version is empty in getMajorMinorVersion()
+23:39:36:3936 [important] [FelixStartLevel] WARN  - InfoSource version not found!! skipping relevant version checks
+23:39:36:3936 [important] [FelixStartLevel] INFO  - xmsim gcc version is 9.3.0
+23:39:36:3936 [important] [FelixStartLevel] INFO  - indago gcc version is 9.3.0
+23:39:37:3937 [important] [TangoTaskManager-4] WARN  - An Indago Snapshot/LWD was not loaded. Scripting API functionality may be impacted.
+23:39:37:3937 [com.cadence.smartlog.bl.common.SLUtils] [TangoTaskManager-5] INFO  - query: 
+23:39:41:3941 [user_actions] [AWT-EventQueue-0] DEBUG - refreshSchematicAttributes (SchematicActionsManager$24)
+
+23:39:42:3942 [user_actions] [AWT-EventQueue-0] DEBUG - LiveSimulationRefreshWaveform (GSLLiveSimulationRefreshWaveformAction)
+
+23:39:42:3942 [user_actions] [AWT-EventQueue-0] DEBUG - LiveSimulationRefreshWaveform (GSLLiveSimulationRefreshWaveformAction)
+
+23:39:42:3942 [user_actions] [AWT-EventQueue-0] DEBUG - LiveSimulationRefreshWaveform (GSLLiveSimulationRefreshWaveformAction)
+
+23:39:42:3942 [important] [TangoTaskManager-4] INFO  - ScriptingActivator while loop has finished
+23:39:51:3951 [user_actions] [AWT-EventQueue-0] DEBUG - refreshSchematicAttributes (SchematicActionsManager$24)
+
+23:40:32:4032 [user_actions] [AWT-EventQueue-0] DEBUG - recordLogs (GSLRecordLogsAction)
+
+23:40:33:4033 [com.cadence.smartlog.bl.common.SLUtils] [TangoTaskManager-13] INFO  - query: 
+23:40:33:4033 [com.cadence.smartlog.bl.common.SLUtils] [Thread-17] INFO  - query: 
+23:40:33:4033 [com.cadence.smartlog.bl.common.SLUtils] [TangoTaskManager-1] INFO  - query: 
+23:40:42:4042 [user_actions] [AWT-EventQueue-0] DEBUG - OK (GUFIQuestionDialog$1)
+	dialog = confirmExitDlg (GUFIQuestionDialog)
+

@@ -1,0 +1,6 @@
+// Paths are relative to the work folder
++libext+.v+.sv+.vlib
++incdir+/ee/166/CHIPKIT/ip/rtl_inc
+-y ../rtl/
+../rtl/FIR_63TAP.sv
+../rtl/tb.sv
