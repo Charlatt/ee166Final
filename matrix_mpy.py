@@ -13,7 +13,7 @@ def calculate_result(matrix1, matrix2):
 def write_random_matrix(filename):
     matrixOne = np.random.randint(0, 255, size=(8, 8))
     with open(filename, "w") as f:
-        f.write("\n".join(hex(v) for v in matrixOne.flatten()))
+        f.write("\n".join(f"{v:x}" for v in matrixOne.flatten()))
 
 def file_to_matrix(filename):
     try:
