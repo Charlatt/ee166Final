@@ -16,6 +16,10 @@ logic [7:0] c3_out;
 logic [7:0] c4_out;
 logic done;
 
+integer write_file;
+integer read_file_a;
+integer read_file_b;
+
 
 MAT_MULT dut (
     .CLK(clk),
@@ -59,8 +63,8 @@ initial begin
     #20; 
 
     ctrl = 3'b001; // load state
-    while (!$feof(read_file)) begin 
-        @(posedge clk);
+    while (!$feof(read_file_a) && !$feof(read_file_b)) begin 
+        @(negedge clk);
         $fscanf(read_file_a, "%h \n", a1_in);
         $fscanf(read_file_a, "%h \n", a2_in);
         $fscanf(read_file_b, "%h \n", b1_in);
@@ -71,7 +75,6 @@ end
     a2_in = 8'h00;
     b1_in = 8'h00;
     b2_in = 8'h00;
-    $fclose(read_file);
     #20;
 
     // start compute 
@@ -95,10 +98,12 @@ end
 always @(posedge clk) begin
     #1; 
     // write output to file
-    $fwrite(write_file, "%h\n", c1_out);
-    $fwrite(write_file, "%h\n", c2_out);
-    $fwrite(write_file, "%h\n", c3_out);    
-    $fwrite(write_file, "%h\n", c4_out);
+    if (ctrl == 3'b100) begin
+        $fwrite(write_file, "%h\n", c1_out);
+        $fwrite(write_file, "%h\n", c2_out);
+        $fwrite(write_file, "%h\n", c3_out);    
+        $fwrite(write_file, "%h\n", c4_out);
+    end 
 end 
 
 initial begin
