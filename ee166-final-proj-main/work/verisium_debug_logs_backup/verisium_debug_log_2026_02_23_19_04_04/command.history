@@ -1,3 +1,0 @@
-Connected to dc:vm-hw07.eecs.tufts.edu:46243
-xmsim ida_probe -log=on
-xmsim run

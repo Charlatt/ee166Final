@@ -53,6 +53,7 @@ module MATMULT (
             end
         end
     endgenerate
+    always_comb done = (c_idx == '64);
 
     // Output C matrix
     always_ff @(posedge CLK, negedge RSTN) begin
@@ -69,7 +70,6 @@ module MATMULT (
         end
     end
 
-    always_comb done = (c_idx == '64);
 
 
     

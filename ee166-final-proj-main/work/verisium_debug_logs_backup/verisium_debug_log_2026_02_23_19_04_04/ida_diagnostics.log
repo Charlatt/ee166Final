@@ -1,2 +1,0 @@
-statement aborts at 10: [SELECT snum FROM messages ORDER BY snum DESC LIMIT 1;] database schema has changed17
-statement aborts at 17: [SELECT  id,str FROM dictionary ORDER BY id ASC;] database schema has changed17

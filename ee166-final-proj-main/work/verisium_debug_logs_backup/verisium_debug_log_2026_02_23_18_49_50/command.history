@@ -1,7 +1,0 @@
-Connected to dc:vm-hw07.eecs.tufts.edu:42219
-xmsim run
-xmsim reset
-xmsim run
-xmsim ida_probe -log=on
-xmsim reset
-xmsim run
