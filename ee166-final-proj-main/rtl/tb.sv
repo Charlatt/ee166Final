@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module tb(); 
+module tb; 
 
 logic clk;
 logic rst_n;
@@ -21,7 +21,7 @@ integer read_file_a;
 integer read_file_b;
 
 
-MAT_MULT dut (
+MATMULT dut (
     .CLK(clk),
     .RSTN(rst_n),
     .EN(en),

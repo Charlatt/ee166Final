@@ -5,7 +5,7 @@ module MATMULT (
       logic signed [7:0] a1_in, a2_in, b1_in, b2_in,
       logic CLK, EN, RSTN,
     output 
-      logic signed [7:0] c1_in, c2_in, c3_in, c4_in,
+      logic signed [7:0] c1_out, c2_out, c3_out, c4_out,
       logic done
 );
 
