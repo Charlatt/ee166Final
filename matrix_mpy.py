@@ -7,8 +7,7 @@ import argparse
 # Generate random matrix
 
 def calculate_result(matrix1, matrix2):
-    return np.matmul(matrix1, matrix2)
-
+    return np.matmul(matrix1, matrix2, dtype=np.uint8)
 
 def write_random_matrix(filename):
     matrixOne = np.random.randint(0, 255, size=(8, 8))
@@ -24,7 +23,7 @@ def file_to_matrix(filename):
 
             assert len(values) == 64
 
-            return np.array(values).reshape(8, 8)
+            return np.array(values, dtype=np.uint8).reshape(8, 8)
     except:
         exit(f"Couldn't open file '{filename}'")
 
@@ -32,11 +31,11 @@ def file_to_matrix(filename):
 def verify(matrixRTL, matrixPy):
     errors = []
     for (i, j), elemRTL in np.ndenumerate(matrixRTL):
-        elemPy = matrixPy[i, j]
+        elemPy = matrixPy[i, j] # truncate to 8 bits
         if elemRTL != elemPy:
             errors.append(f"[{i},{j}] RTL is {elemRTL} but PY is {elemPy}")
 
-    print(errors)
+    print("\n".join(errors))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -58,5 +57,11 @@ if __name__ == "__main__":
         matrix_to_test = file_to_matrix(args.result_matrix)
         result = calculate_result(matrix1, matrix2)
         verify(matrix_to_test, result)
+        c = 0
+        a = [0x36, 0x79, 0x43, 0x5d, 0xcc, 0xf7, 0xf1, 0x47]
+        b = [0x55, 0x75, 0x9b, 0xe9, 0x82, 0x5d, 0xfa, 0xc0]
+        for i in range(7, -1, -1):
+            c = (((a[i] * b[i]) & (2**8 - 1)) + c) & (2**8 - 1)
+        print(c)
     else:
         parser.print_help()

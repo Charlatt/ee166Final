@@ -49,7 +49,7 @@ foreach dont_use ${rm_dont_use_list} {
 source -verbose ../scripts/init_genus.tcl
 
 # GENUS READ_VCD
-read_vcd -static -vcd_scope tb.u_dut ../rtl/FIR_63TAP.vcd
+# read_vcd -static -vcd_scope tb.u_dut ../rtl/FIR_63TAP.vcd
 
 syn_generic
 write_hdl > ../data/${rm_core_top}-map.v

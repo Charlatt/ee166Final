@@ -56,8 +56,8 @@ initial begin
 
     // enable
     write_file = $fopen("output.txt", "w");
-    read_file_a = $fopen("a.txt", "r");
-    read_file_b = $fopen("b.txt", "r");
+    read_file_a = $fopen("../rtl/a.txt", "r");
+    read_file_b = $fopen("../rtl/b.txt", "r");
     rst_n = 1;
     en = 1;
     #20; 
